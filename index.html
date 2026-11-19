@@ -10,6 +10,7 @@
 <meta property="og:url" content="https://pengchej-star.github.io/">
 <meta property="og:image" content="https://pengchej-star.github.io/photo.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fcfcfa'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-weight='600' fill='%23191c22'%3EPJ%3C/text%3E%3Cpath d='M12 50 C 24 45, 40 46, 53 49' fill='none' stroke='%232748d8' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Pengcheng Jing", "url": "https://pengchej-star.github.io/", "image": "https://pengchej-star.github.io/photo.jpg", "jobTitle": "M.S. student, Language Technologies Institute", "affiliation": {"@type": "CollegeOrUniversity", "name": "Carnegie Mellon University"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Carnegie Mellon University"}, {"@type": "CollegeOrUniversity", "name": "Xi'an Jiaotong University"}], "knowsAbout": ["LLM agents", "agent evaluation", "agent safety", "tacit knowledge", "synthetic data", "GRPO"], "sameAs": ["https://scholar.google.com/citations?user=sMRIWpQAAAAJ", "https://github.com/pengchej-star", "https://www.linkedin.com/in/pengchengjing-38906242b"]}</script>
 <style>
 :root{color-scheme:light;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
 body{margin:0;font:14px system-ui,sans-serif}
@@ -103,6 +104,8 @@ a:hover{text-decoration:underline; text-decoration-thickness:1.5px; text-underli
 .top nav{display:flex; gap:26px; font-size:14.5px; font-weight:500}
 .top nav a{color:var(--ink-2)}
 .top nav a:hover{color:var(--ink)}
+.cv{display:inline-flex; align-items:center; gap:5px; padding:7px 13px; border:1.5px solid var(--pen); border-radius:6px; font:500 14px/1 var(--sans); color:var(--pen); white-space:nowrap; transition:background-color .2s}
+.cv:hover{text-decoration:none; background:color-mix(in srgb, var(--hl) 55%, transparent)}
 .tool{display:grid; place-items:center; width:42px; height:42px; padding:0; border:0; border-radius:50%; background:none; cursor:pointer; transition:background-color .2s, rotate .3s}
 .tool:hover{background:color-mix(in srgb, var(--hl) 55%, transparent); rotate:-8deg}
 .icon{width:27px; height:27px; overflow:visible; stroke-width:1.9; filter:url(#pen-fine)}
@@ -145,6 +148,9 @@ h1{font:500 43px/1.05 var(--serif); letter-spacing:-.02em}
 .stamp{display:grid; place-items:center; width:28px; height:28px; border:1.5px solid var(--pen); border-radius:5px; color:var(--pen); font:600 8.5px/1 var(--sans); letter-spacing:.01em}
 .stamp.lg{width:42px; height:42px; border-radius:7px; font-size:11.5px}
 .stamp svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+.seeking{display:flex; align-items:flex-start; gap:11px; padding:10px 13px 11px; border-radius:6px; background:color-mix(in srgb, var(--hl) 38%, transparent); font-size:14.5px; line-height:1.45; color:var(--ink)}
+.seeking b{font-weight:600}
+.seeking .dot{flex:none; position:relative; width:8px; height:8px; margin-top:6px; border-radius:50%; background:var(--pen)}
 .bio{font:400 17px/1.55 var(--serif)}
 .topic{font:inherit; background:none; border:0; border-radius:2px; padding:0 1px; cursor:pointer; text-decoration:underline dotted var(--pen); text-decoration-thickness:2px; text-underline-offset:.24em; transition:background-color .2s}
 .topic:hover,.topic[aria-pressed="true"]{background:var(--hl)}
@@ -294,6 +300,10 @@ main{container-type:inline-size}
   html{scroll-behavior:auto}
   .print,.pen-btn,.tool,.chev,.details,.item,.row,.topic{transition:none}
 }
+@media (prefers-reduced-motion:no-preference){
+  .seeking .dot::after{content:""; position:absolute; inset:0; border-radius:50%; background:var(--pen); animation:ping 2.4s ease-out infinite}
+}
+@keyframes ping{0%{opacity:.55; scale:1} 80%,100%{opacity:0; scale:2.8}}
 @keyframes hello{from{opacity:0; translate:-10px 8px}}
 @keyframes drop{from{opacity:0; translate:0 -14px; scale:.96}}
 </style>
@@ -348,6 +358,8 @@ main{container-type:inline-size}
           </ul>
         </div>
       </div>
+
+      <p class="seeking"><span class="dot" aria-hidden="true"></span><span><b>Seeking</b> Summer 2027 research and applied science internships, and full-time roles starting early 2028.</span></p>
 
       <p class="bio">I work on making LLM agents more reliable on real tasks. My research covers <button type="button" class="topic" data-topic="eval" aria-pressed="false">agent evaluation</button>, <button type="button" class="topic" data-topic="safety" aria-pressed="false">agent safety</button>, and the <button type="button" class="topic" data-topic="tacit" aria-pressed="false">tacit knowledge</button> that agents are missing. On the engineering side, I build <button type="button" class="topic" data-topic="synth" aria-pressed="false">synthetic-data pipelines</button> and train models with <button type="button" class="topic" data-topic="train" aria-pressed="false">SFT and GRPO</button>.</p>
       <p class="note hint" aria-hidden="true"><svg class="ink" viewBox="0 0 26 30"><path pathLength="1" d="M20 27 C 12 24, 7 16, 8 5"/><path pathLength="1" d="M3 11 L 8 5 L 14 10"/></svg><span>tap a keyword to see where I used it</span></p>
