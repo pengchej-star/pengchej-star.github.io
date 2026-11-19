@@ -220,19 +220,34 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
 .paperfig img{display:block; width:100%; height:auto; padding:8px; border-radius:3px; background:var(--print)}
 .paperfig figcaption{padding-top:6px; font-size:12.5px; line-height:1.5; color:var(--ink-3)}
 
-/* background rows */
+/* background: education and research positions, side by side when the column is wide enough */
+main{container-type:inline-size}
+.bg{display:grid; grid-template-columns:minmax(0,1fr); gap:20px 36px; align-items:start}
+@container (min-width:620px){ .bg{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.bg-group{min-width:0}
+.bg-label{display:flex; align-items:center; gap:12px; padding-bottom:2px; font:600 11.5px/1.6 var(--sans); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)}
+.bg-label::after{content:""; flex:1; height:1px; background:var(--rule)}
 .row + .row{border-top:1px solid var(--rule)}
 .row-head{
-  display:grid; grid-template-columns:42px 214px minmax(0,1fr) 14px; align-items:center; column-gap:16px;
-  width:100%; padding:11px 0; border:0; background:none; text-align:left; cursor:pointer;
+  display:grid; grid-template-columns:38px minmax(0,1fr) 12px; column-gap:14px; align-items:start;
+  width:100%; padding:12px 0; border:0; background:none; text-align:left; cursor:pointer;
 }
-.row-org b{display:block; font:600 16px/1.3 var(--sans); color:var(--ink)}
-.row-when{display:block; font-size:13.5px; color:var(--ink-3)}
-.row-what{font-size:15px; line-height:1.45; color:var(--ink-2)}
+.row-head .stamp.lg{width:38px; height:38px; margin-top:2px; font-size:10.5px}
+.row-text{display:flex; flex-direction:column; gap:1px; min-width:0}
+.row-org{font:600 15.5px/1.35 var(--sans); color:var(--ink)}
+.row-what{font-size:14px; line-height:1.42; color:var(--ink-2)}
+.row-when{font-size:13px; line-height:1.42; color:var(--ink-3); font-variant-numeric:tabular-nums}
 .row-head.more:hover{text-decoration:none}
-.row-head:hover .row-org b{color:var(--pen)}
-.row-head .chev{width:12px; height:12px; color:var(--pen)}
-.row-more{padding:0 30px 14px 58px; font:400 16px/1.5 var(--serif); color:var(--ink-2)}
+.row-head:hover .row-org{color:var(--pen)}
+.row-head .chev{width:12px; height:12px; margin-top:6px; color:var(--pen)}
+.row-more{padding:0 0 14px 52px; font:400 15.5px/1.5 var(--serif); color:var(--ink-2)}
+
+/* BibTeX */
+.bib-copy{display:flex; justify-content:flex-end; padding-top:10px}
+.bib pre{
+  margin:2px 0 0; padding:12px 14px; border-radius:4px; background:color-mix(in srgb, var(--rule) 55%, transparent);
+  font:12.5px/1.55 ui-monospace,"SF Mono",Menlo,Consolas,monospace; color:var(--ink-2); white-space:pre; overflow-x:auto; tab-size:2;
+}
 
 /* skills */
 .skills{display:grid; grid-template-columns:150px minmax(0,1fr); gap:9px 20px; font-size:15px}
@@ -263,10 +278,6 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
   .item{grid-template-columns:minmax(0,1fr); row-gap:14px}
   .thumb{flex-direction:row; align-items:center; gap:18px}
   .card{flex:none; width:150px}
-  .row-head{grid-template-columns:42px minmax(0,1fr) 14px; row-gap:3px}
-  .row-what{grid-column:2}
-  .row-head .chev{grid-column:3; grid-row:1}
-  .row-more{padding:0 0 14px 58px}
 }
 @media (max-width:560px){
   .facts{grid-template-columns:minmax(0,1fr); gap:1px}
@@ -309,8 +320,8 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
 
   <header class="top">
     <nav aria-label="Sections">
-      <a href="#research">Research</a>
       <a href="#background">Background</a>
+      <a href="#research">Research</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -357,6 +368,92 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
     </aside>
 
     <main>
+
+      <section class="sec" id="background" aria-labelledby="h-background">
+        <div class="sec-head">
+          <h2 id="h-background">Background</h2>
+          <button type="button" class="all" id="all-rows" aria-pressed="false" data-group="row"><span>Expand all</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+        </div>
+        <div class="bg">
+          <div class="bg-group">
+            <h3 class="bg-label">Education</h3>
+            <div class="row">
+              <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-cmu">
+                <span class="stamp lg" aria-hidden="true">CMU</span>
+                <span class="row-text">
+                  <span class="row-org">Carnegie Mellon University</span>
+                  <span class="row-what">M.S. in Intelligent Information Systems</span>
+                  <span class="row-when">Expected Dec 2027 · Pittsburgh, PA</span>
+                </span>
+                <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
+              </button>
+              <div class="details" id="b-cmu"><div class="inner">
+                <p class="row-more">Language Technologies Institute, School of Computer Science. Coursework: Deep Learning Systems, Advanced NLP, Intro to QA with LLMs.</p>
+              </div></div>
+            </div>
+            <div class="row">
+              <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-xjtu">
+                <span class="stamp lg" aria-hidden="true">XJTU</span>
+                <span class="row-text">
+                  <span class="row-org">Xi'an Jiaotong University</span>
+                  <span class="row-what">B.S. in Computer Science and Technology</span>
+                  <span class="row-when">Jun 2026 · GPA 3.91 / 4.00</span>
+                </span>
+                <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
+              </button>
+              <div class="details" id="b-xjtu"><div class="inner">
+                <p class="row-more">Xi'an, China. First-Class Scholarship.</p>
+              </div></div>
+            </div>
+          </div>
+
+          <div class="bg-group">
+            <h3 class="bg-label">Research experience</h3>
+            <div class="row" data-topics="tacit">
+              <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-lti">
+                <span class="stamp lg" aria-hidden="true">CMU</span>
+                <span class="row-text">
+                  <span class="row-org">Carnegie Mellon University</span>
+                  <span class="row-what">with Prof. Sherry Tongshuang Wu</span>
+                  <span class="row-when">Aug 2026 – present · with Bosch</span>
+                </span>
+                <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
+              </button>
+              <div class="details" id="b-lti"><div class="inner">
+                <p class="row-more">Research assistant at the Language Technologies Institute, on tacit knowledge gaps between LLM agents and human experts. <a href="#tacit">See the project ↓</a></p>
+              </div></div>
+            </div>
+            <div class="row" data-topics="safety synth train">
+              <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-nd-zhang">
+                <span class="stamp lg" aria-hidden="true">ND</span>
+                <span class="row-text">
+                  <span class="row-org">University of Notre Dame</span>
+                  <span class="row-what">with Prof. Xiangliang Zhang</span>
+                  <span class="row-when">Jul – Sep 2025 · with IBM</span>
+                </span>
+                <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
+              </button>
+              <div class="details" id="b-nd-zhang"><div class="inner">
+                <p class="row-more">Research assistant on Safiron, a guardrail for agent plans, in collaboration with IBM. Published at ICLR 2026. <a href="#safiron">See the paper ↓</a></p>
+              </div></div>
+            </div>
+            <div class="row" data-topics="eval">
+              <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-nd-ye">
+                <span class="stamp lg" aria-hidden="true">ND</span>
+                <span class="row-text">
+                  <span class="row-org">University of Notre Dame</span>
+                  <span class="row-what">with Prof. Yanfang (Fanny) Ye</span>
+                  <span class="row-when">Sep 2025 – Feb 2026</span>
+                </span>
+                <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
+              </button>
+              <div class="details" id="b-nd-ye"><div class="inner">
+                <p class="row-more">Research assistant on Drift-Bench, a multi-turn benchmark for agents under input faults. Published at ICML 2026. <a href="#drift-bench">See the paper ↓</a></p>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="sec" id="research" aria-labelledby="h-research">
         <div class="sec-head">
@@ -426,9 +523,10 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
             <p class="sum">A multi-turn benchmark for agents that receive flawed instructions. With clarification disabled, 7 LLM agents dropped <mark class="hl">about 45% on OS/DB tasks and 21% on API tasks</mark> relative to fault-free instructions.</p>
             <div class="row-links">
               <button type="button" class="more" aria-expanded="false" aria-controls="d-drift"><span>Details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+              <a href="https://arxiv.org/pdf/2602.02455" target="_blank" rel="noopener">PDF ↗</a>
               <a href="https://arxiv.org/abs/2602.02455" target="_blank" rel="noopener">arXiv ↗</a>
-              <a href="https://proceedings.mlr.press/v306/bao26e.html" target="_blank" rel="noopener">Proceedings ↗</a>
-              <a href="https://icml.cc/virtual/2026/poster/60842" target="_blank" rel="noopener">Poster ↗</a>
+              <a href="https://proceedings.mlr.press/v306/bao26e.html" target="_blank" rel="noopener">PMLR ↗</a>
+              <button type="button" class="more bib-btn" aria-expanded="false" aria-controls="bib-drift-panel"><span>BibTeX</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
             </div>
             <div class="details" id="d-drift"><div class="inner">
               <dl class="facts">
@@ -445,6 +543,20 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
                 <img src="fig-drift-bench.png" width="1022" height="219" loading="lazy" alt="Pipeline of Drift-Bench: perturb verified tasks, let an agent talk with a simulated user who has one of five personas, then evaluate.">
                 <figcaption>Pipeline overview, Figure 2 of <a href="https://arxiv.org/abs/2602.02455" target="_blank" rel="noopener">the paper</a> (CC BY 4.0).</figcaption>
               </figure>
+            </div></div>
+            <div class="details bib" id="bib-drift-panel"><div class="inner">
+              <div class="bib-copy"><button type="button" class="pen-btn" data-copy="" data-target="bib-drift" aria-live="polite"><span class="idle">(copy)</span><span class="done">copied!</span><span class="sel">selected</span></button></div>
+              <pre id="bib-drift">@inproceedings{pmlr-v306-bao26e,
+  title     = {{DRIFT}-{BENCH}: Diagnosing {C}oope{R}ative Breakdowns in {LLM} Agents under Input Faults via Multi-Turn Interaction},
+  author    = {Bao, Han and Zhang, Zheyuan and Jing, Pengcheng and Yuan, Zhengqing and Shi, Kaiwen and Ye, Yanfang},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {306},
+  pages     = {6492--6559},
+  publisher = {PMLR},
+  year      = {2026},
+  url       = {https://proceedings.mlr.press/v306/bao26e.html}
+}</pre>
             </div></div>
           </div>
         </article>
@@ -473,8 +585,10 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
             <p class="sum">An 8B-parameter guardrail, built with IBM, that flags risky agent plans, classifies the risk, and explains why before execution. <mark class="hl">94.9% binary accuracy</mark>, ahead of all 12 general-purpose LLM baselines.</p>
             <div class="row-links">
               <button type="button" class="more" aria-expanded="false" aria-controls="d-safiron"><span>Details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+              <a href="https://arxiv.org/pdf/2510.09781" target="_blank" rel="noopener">PDF ↗</a>
               <a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">arXiv ↗</a>
-              <a href="https://iclr.cc/virtual/2026/poster/10009978" target="_blank" rel="noopener">Poster ↗</a>
+              <a href="https://iclr.cc/virtual/2026/poster/10009978" target="_blank" rel="noopener">ICLR ↗</a>
+              <button type="button" class="more bib-btn" aria-expanded="false" aria-controls="bib-safiron-panel"><span>BibTeX</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
             </div>
             <div class="details" id="d-safiron"><div class="inner">
               <dl class="facts">
@@ -494,51 +608,18 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
                 <figcaption>Training pipeline, Figure 3 of <a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">the paper</a> (CC BY-NC-SA 4.0).</figcaption>
               </figure>
             </div></div>
+            <div class="details bib" id="bib-safiron-panel"><div class="inner">
+              <div class="bib-copy"><button type="button" class="pen-btn" data-copy="" data-target="bib-safiron" aria-live="polite"><span class="idle">(copy)</span><span class="done">copied!</span><span class="sel">selected</span></button></div>
+              <pre id="bib-safiron">@inproceedings{huang2026building,
+  title     = {Building a Foundational Guardrail for General Agentic Systems via Synthetic Data},
+  author    = {Huang, Yue and Hua, Hang and Zhou, Yujun and Jing, Pengcheng and Nagireddy, Manish and Padhi, Inkit and Dolcetti, Greta and Xu, Zhangchen and Chaudhury, Subhajit and Rawat, Ambrish and Nedoshivina, Liubov and Chen, Pin-Yu and Sattigeri, Prasanna and Zhang, Xiangliang},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2510.09781}
+}</pre>
+            </div></div>
           </div>
         </article>
-      </section>
-
-      <section class="sec" id="background" aria-labelledby="h-background">
-        <div class="sec-head">
-          <h2 id="h-background">Background</h2>
-          <button type="button" class="all" id="all-rows" aria-pressed="false" data-group="row"><span>Expand all</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
-        </div>
-
-        <div class="row" data-topics="tacit">
-          <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-cmu">
-            <span class="stamp lg" aria-hidden="true">CMU</span>
-            <span class="row-org"><b>Carnegie Mellon University</b><span class="row-when">Expected Dec 2027</span></span>
-            <span class="row-what">M.S. in Intelligent Information Systems · Language Technologies Institute</span>
-            <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
-          </button>
-          <div class="details" id="b-cmu"><div class="inner">
-            <p class="row-more">School of Computer Science, Pittsburgh. Coursework: Deep Learning Systems, Advanced NLP, Intro to QA with LLMs. Research assistant with Prof. Sherry Tongshuang Wu since Aug 2026, in collaboration with Bosch.</p>
-          </div></div>
-        </div>
-
-        <div class="row" data-topics="eval safety synth train">
-          <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-nd">
-            <span class="stamp lg" aria-hidden="true">ND</span>
-            <span class="row-org"><b>University of Notre Dame</b><span class="row-when">Jul 2025 – Feb 2026</span></span>
-            <span class="row-what">Research assistant · agent safety and evaluation</span>
-            <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
-          </button>
-          <div class="details" id="b-nd"><div class="inner">
-            <p class="row-more">With Prof. Xiangliang Zhang on Safiron, in collaboration with IBM (Jul – Sep 2025), and with Prof. Yanfang (Fanny) Ye on Drift-Bench (Sep 2025 – Feb 2026).</p>
-          </div></div>
-        </div>
-
-        <div class="row">
-          <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-xjtu">
-            <span class="stamp lg" aria-hidden="true">XJTU</span>
-            <span class="row-org"><b>Xi'an Jiaotong University</b><span class="row-when">Jun 2026</span></span>
-            <span class="row-what">B.S. in Computer Science and Technology · GPA 3.91 / 4.00</span>
-            <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
-          </button>
-          <div class="details" id="b-xjtu"><div class="inner">
-            <p class="row-more">Xi'an, China. First-Class Scholarship.</p>
-          </div></div>
-        </div>
       </section>
 
       <section class="sec" id="skills" aria-labelledby="h-skills">
@@ -641,7 +722,9 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
     }
     btn.addEventListener('click', function () {
       try {
-        navigator.clipboard.writeText(btn.getAttribute('data-copy')).then(function () { flash('is-done'); }, selectText);
+        var target = $(btn.getAttribute('data-target'));
+        var text = btn.getAttribute('data-copy') || (target ? target.textContent : '');
+        navigator.clipboard.writeText(text).then(function () { flash('is-done'); }, selectText);
       } catch (e) { selectText(); }
     });
   });
@@ -649,12 +732,13 @@ h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
   /* ---- rows that open for detail ---- */
   var groups = { item: $('all-details'), row: $('all-rows') };
   var labels = { item: ['Show all details', 'Hide all details'], row: ['Expand all', 'Collapse all'] };
-  function groupOf(btn) { return btn.classList.contains('row-head') ? 'row' : 'item'; }
+  function groupOf(btn) { return btn.classList.contains('row-head') ? 'row' : btn.classList.contains('bib-btn') ? 'bib' : 'item'; }
   function setOpen(btn, open) {
     btn.setAttribute('aria-expanded', String(open));
     $(btn.getAttribute('aria-controls')).classList.toggle('is-open', open);
   }
   function syncGroup(name) {
+    if (!groups[name]) return;
     var btns = all('.more').filter(function (b) { return groupOf(b) === name; });
     var allOpen = btns.every(function (b) { return b.getAttribute('aria-expanded') === 'true'; });
     groups[name].setAttribute('aria-pressed', String(allOpen));
