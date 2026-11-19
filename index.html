@@ -17,35 +17,36 @@ img{max-width:100%}
 [hidden]{display:none!important}
 </style>
 <title>Pengcheng Jing</title>
+<script>(function(){var r=document.documentElement;r.classList.add('js');try{var t=localStorage.getItem('pj-theme');if(t==='dark'||t==='light')r.setAttribute('data-theme',t)}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"></noscript>
 <style>
-/* Layout: one reading column with a wide right margin, like an annotated paper.
-   The typeset text is the written layer; the blue pen notes, circles and arrows are the unwritten one. */
+/* Layout: a résumé you can scan in a minute. A sticky column on the left says who I am;
+   the right column lists research, background and skills as short rows that open for detail.
+   Serif for what you read, sans for what you scan, and a blue pen for the few handwritten marks. */
 :root{
   --paper:#fcfcfa; --ink:#191c22; --ink-2:#474c57; --ink-3:#6c717d; --rule:#e3e4e0;
   --pen:#2748d8; --hl:#ffe873;
-  --print:#ffffff; --print-ink:#2e323b; --tape:#f1dc8f; --shadow:rgba(24,28,44,.18);
-  --text:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif SC","Songti SC","Source Han Serif SC","Noto Serif CJK SC","PingFang SC","Microsoft YaHei",serif;
-  --hand:"Caveat","Bradley Hand","Segoe Print","Long Cang","Kaiti SC","STKaiti","KaiTi",cursive;
-  --ui:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-  --gutter:clamp(22px,5vw,40px);
-  --col:664px; --gap:64px;
+  --print:#ffffff; --print-ink:#2e323b; --print-pen:#2748d8; --tape:#f1dc8f; --shadow:rgba(24,28,44,.18);
+  --serif:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+  --gutter:clamp(20px,5vw,44px);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --paper:#15171c; --ink:#eceae4; --ink-2:#babdc5; --ink-3:#8d919b; --rule:#2a2d35;
     --pen:#9bb0ff; --hl:#6b5b20;
-    --print:#f4f2ec; --print-ink:#2e323b; --tape:#e9d588; --shadow:rgba(0,0,0,.5);
+    --print:#f4f2ec; --print-ink:#2e323b; --print-pen:#2748d8; --tape:#e9d588; --shadow:rgba(0,0,0,.5);
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --paper:#15171c; --ink:#eceae4; --ink-2:#babdc5; --ink-3:#8d919b; --rule:#2a2d35;
   --pen:#9bb0ff; --hl:#6b5b20;
-  --print:#f4f2ec; --print-ink:#2e323b; --tape:#e9d588; --shadow:rgba(0,0,0,.5);
+  --print:#f4f2ec; --print-ink:#2e323b; --print-pen:#2748d8; --tape:#e9d588; --shadow:rgba(0,0,0,.5);
   color-scheme:dark;
 }
 
@@ -53,43 +54,36 @@ img{max-width:100%}
 html{scroll-behavior:smooth}
 body{
   background:var(--paper); color:var(--ink);
-  font:400 19px/1.62 var(--text); font-optical-sizing:auto;
+  font:400 15.5px/1.55 var(--sans);
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
-:root[data-lang="zh"] body{font-size:18px; line-height:1.9}
 h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
 ul,ol{padding:0; list-style:none}
+button{font:inherit; color:inherit}
 ::selection{background:var(--hl); color:var(--ink)}
 :focus-visible{outline:2px solid var(--pen); outline-offset:3px; border-radius:3px}
-[id]{scroll-margin-top:28px}
-
-a{
-  color:inherit; text-decoration:underline; text-decoration-color:var(--pen); text-decoration-thickness:1.5px; text-underline-offset:.2em;
-  background:linear-gradient(var(--hl),var(--hl)) no-repeat 0 100% / 0% 100%;
-  transition:background-size .35s cubic-bezier(.3,.7,.2,1);
-}
-a:hover{background-size:100% 100%}
-.out{color:var(--pen)}
-
-/* both languages live in the markup; one is shown */
-:root:not([data-lang="zh"]) .zh{display:none}
-:root[data-lang="zh"] .en{display:none}
+[id]{scroll-margin-top:24px}
+a{color:var(--pen); text-decoration:none}
+a:hover{text-decoration:underline; text-decoration-thickness:1.5px; text-underline-offset:.2em}
 
 .page{
-  max-width:1040px; margin-inline:auto;
+  max-width:1176px; margin-inline:auto;
   padding-left:max(var(--gutter), env(safe-area-inset-left, 0px));
   padding-right:max(var(--gutter), env(safe-area-inset-right, 0px));
-  --marg:min(250px, calc(min(1040px, 100vw) - 2 * var(--gutter) - var(--col) - var(--gap) - 24px));
 }
 
-/* pen strokes */
+/* day / night: the new theme opens from the button like a drop of ink */
+::view-transition-old(root),::view-transition-new(root){animation:none; mix-blend-mode:normal}
+::view-transition-old(root){z-index:1}
+::view-transition-new(root){z-index:2}
+.theme-fade,.theme-fade *,.theme-fade *::before,.theme-fade *::after{transition:background-color .45s ease, color .45s ease, border-color .45s ease, stroke .45s ease, fill .45s ease !important}
+
+/* pen strokes and highlighter */
 .ink{fill:none; stroke:var(--pen); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; filter:url(#pen-rough); pointer-events:none}
 .ink path{fill:none}
 .inked .ink path{stroke-dasharray:1 2; stroke-dashoffset:1.05; transition:stroke-dashoffset .85s cubic-bezier(.55,.1,.3,1)}
 .inked .ink path:nth-child(2){transition-delay:.6s; transition-duration:.4s}
 .inked .ink.is-drawn path{stroke-dashoffset:0}
-
-/* highlighter */
 .hl{
   color:inherit; padding-inline:.12em; margin-inline:-.12em; border-radius:2px;
   background:linear-gradient(101deg, transparent .8%, var(--hl) 2.6%, var(--hl) 97%, transparent 99.2%) no-repeat 0 84% / 100% 60%;
@@ -97,149 +91,200 @@ a:hover{background-size:100% 100%}
 }
 .inked .hl{background-size:0% 60%; transition:background-size .75s cubic-bezier(.3,.7,.2,1) .15s}
 .inked .hl.is-drawn{background-size:100% 60%}
-
-/* handwritten notes */
-.note{font:600 clamp(21px,2vw,24px)/1.14 var(--hand); color:var(--pen); text-wrap:balance}
-:root[data-lang="zh"] .note{font-weight:400; font-size:clamp(20px,1.9vw,23px); line-height:1.3}
-.anch{position:relative; display:flex; flex-direction:column; gap:10px}
-.side{position:relative}
-.side .arrow{position:absolute; height:auto; overflow:visible}
-
-/* top bar */
-.top{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:22px}
-.top nav{display:flex; flex-wrap:wrap; gap:4px 24px; font-size:16px; font-style:italic}
-:root[data-lang="zh"] .top nav{font-style:normal; font-size:15px}
-.top nav a{color:var(--ink-3); text-decoration:none}
-.top nav a:hover{color:var(--ink)}
-.lang{display:inline-flex; gap:14px; margin-left:auto; font:500 14px/1 var(--ui)}
-.lang button{position:relative; padding:7px 2px 9px; border:0; background:none; color:var(--ink-3); font:inherit; cursor:pointer}
-.lang button:hover{color:var(--ink)}
-.lang button[aria-pressed="true"]{color:var(--ink)}
-.lang button[aria-pressed="true"]::after{
-  content:""; position:absolute; left:-3px; right:-3px; bottom:0; height:8px; background:var(--pen);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 8' preserveAspectRatio='none'%3E%3Cpath d='M2 5 C 12 2, 26 7, 38 3' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 8' preserveAspectRatio='none'%3E%3Cpath d='M2 5 C 12 2, 26 7, 38 3' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
-}
-
-/* hero */
-.hero{
-  display:grid; grid-template-columns:minmax(0,var(--col)) minmax(0,1fr); column-gap:var(--gap); align-items:center;
-  padding-top:clamp(30px,6vw,76px);
-}
-.hero-text{display:flex; flex-direction:column; gap:22px; min-width:0}
-.hi{align-self:flex-start; font:600 clamp(28px,3.4vw,38px)/1 var(--hand); color:var(--pen); rotate:-4deg; transform-origin:0 100%; margin-bottom:-14px}
-:root[data-lang="zh"] .hi{font-weight:400; margin-bottom:-8px}
-h1{font:500 clamp(46px,7.6vw,86px)/1.04 var(--text); letter-spacing:-.022em}
-.name{position:relative; display:inline-block; padding-bottom:.14em}
-.underline{position:absolute; left:-1.5%; bottom:-.14em; width:103%; height:auto; overflow:visible}
-.lead{font-size:clamp(21px,2.3vw,25px); line-height:1.46; text-wrap:pretty; padding-top:8px}
-:root[data-lang="zh"] .lead{font-size:clamp(20px,2.1vw,23px); line-height:1.75}
-.bio{color:var(--ink-2)}
-.reach{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 26px; padding-top:2px; font-size:18px}
-.mail{display:inline-flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px}
-.email{user-select:all; overflow-wrap:anywhere}
-.pen-btn{font:600 22px/1 var(--hand); color:var(--pen); background:none; border:0; padding:2px 4px; cursor:pointer; rotate:-2deg; transition:rotate .25s}
+.note{font:600 21px/1.14 var(--hand); color:var(--pen)}
+.pen-btn{font:600 20px/1 var(--hand); color:var(--pen); background:none; border:0; padding:2px 4px; cursor:pointer; rotate:-2deg; transition:rotate .25s}
 .pen-btn:hover{rotate:2deg}
 .pen-btn .done,.pen-btn .sel{display:none}
 .pen-btn.is-done .idle,.pen-btn.is-sel .idle{display:none}
 .pen-btn.is-done .done,.pen-btn.is-sel .sel{display:inline}
 
-/* the photo, as a taped print */
-.margin{display:flex; justify-content:center; min-width:0}
-.print{
-  position:relative; width:min(100%,250px); padding:10px 10px 0; background:var(--print); color:var(--print-ink);
-  box-shadow:0 1px 1px var(--shadow), 0 20px 38px -18px var(--shadow);
-  rotate:3.2deg; transition:rotate .6s cubic-bezier(.2,.8,.2,1), scale .6s cubic-bezier(.2,.8,.2,1);
+/* top bar */
+.top{display:flex; align-items:center; justify-content:flex-end; gap:6px 26px; padding-top:16px}
+.top nav{display:flex; gap:26px; font-size:14.5px; font-weight:500}
+.top nav a{color:var(--ink-2)}
+.top nav a:hover{color:var(--ink)}
+.tool{display:grid; place-items:center; width:42px; height:42px; padding:0; border:0; border-radius:50%; background:none; cursor:pointer; transition:background-color .2s, rotate .3s}
+.tool:hover{background:color-mix(in srgb, var(--hl) 55%, transparent); rotate:-8deg}
+.icon{width:27px; height:27px; overflow:visible; stroke-width:1.9; filter:url(#pen-fine)}
+.theme .moon{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .theme .sun{display:none}
+  :root:not([data-theme="light"]) .theme .moon{display:block}
 }
-.print:hover{rotate:-1.2deg; scale:1.03}
-.print::before{
-  content:""; position:absolute; left:50%; top:-13px; width:92px; height:26px; translate:-50% 0; rotate:-4deg;
+:root[data-theme="dark"] .theme .sun{display:none}
+:root[data-theme="dark"] .theme .moon{display:block}
+
+/* two columns */
+.layout{display:grid; grid-template-columns:312px minmax(0,1fr); column-gap:clamp(40px,6vw,80px); align-items:start; padding-top:clamp(10px,2.4vw,26px)}
+
+/* left: who I am */
+.me{display:flex; flex-direction:column; gap:18px; min-width:0}
+@media (min-width:900px) and (min-height:720px){ .me{position:sticky; top:calc(22px + env(safe-area-inset-top, 0px))} }
+.me-top{display:flex; flex-direction:column; gap:16px}
+.print{
+  position:relative; align-self:flex-start; width:150px; margin:8px 0 2px 6px; padding:7px 7px 0;
+  background:var(--print); color:var(--print-ink);
+  box-shadow:0 1px 1px var(--shadow), 0 16px 30px -16px var(--shadow);
+  rotate:-2.5deg; transition:rotate .6s cubic-bezier(.2,.8,.2,1), scale .6s cubic-bezier(.2,.8,.2,1);
+}
+.print:hover{rotate:1.5deg; scale:1.04}
+.print::after{
+  content:""; position:absolute; left:50%; top:-10px; width:64px; height:20px; translate:-50% 0; rotate:-4deg;
   background:color-mix(in srgb, var(--tape) 74%, transparent); box-shadow:0 1px 2px var(--shadow);
 }
-.print img{display:block; width:100%; height:auto; aspect-ratio:1 / 1.1; object-fit:cover; object-position:50% 28%}
-.print figcaption{padding:7px 4px 11px; text-align:center; font:600 22px/1.1 var(--hand)}
-:root[data-lang="zh"] .print figcaption{font-weight:400}
+.print img{display:block; width:100%; height:auto; aspect-ratio:1 / 1.08; object-fit:cover; object-position:50% 28%}
+.cap{display:block; padding:4px 2px 7px; text-align:center; font:600 18px/1.1 var(--hand)}
+.me-id{display:flex; flex-direction:column; gap:12px; min-width:0}
+.hi{align-self:flex-start; font:600 25px/1 var(--hand); color:var(--pen); rotate:-4deg; transform-origin:0 100%; margin-bottom:-12px}
+h1{font:500 43px/1.05 var(--serif); letter-spacing:-.02em}
+.name{position:relative; display:inline-block; padding-bottom:.16em; white-space:nowrap}
+.underline{position:absolute; left:-1.5%; bottom:-.12em; width:103%; height:auto; overflow:visible}
+.affil{display:flex; flex-direction:column; gap:8px; padding-top:4px; font-size:14.5px; line-height:1.4; color:var(--ink-2)}
+.affil li{display:grid; grid-template-columns:28px minmax(0,1fr); column-gap:10px; align-items:center}
+.affil b{font-weight:600; color:var(--ink)}
+.stamp{display:grid; place-items:center; width:28px; height:28px; border:1.5px solid var(--pen); border-radius:5px; color:var(--pen); font:600 8.5px/1 var(--sans); letter-spacing:.01em}
+.stamp.lg{width:42px; height:42px; border-radius:7px; font-size:11.5px}
+.stamp svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+.bio{font:400 17px/1.55 var(--serif)}
+.topic{font:inherit; background:none; border:0; border-radius:2px; padding:0 1px; cursor:pointer; text-decoration:underline dotted var(--pen); text-decoration-thickness:2px; text-underline-offset:.24em; transition:background-color .2s}
+.topic:hover,.topic[aria-pressed="true"]{background:var(--hl)}
+.topic[aria-pressed="true"]{text-decoration-style:solid}
+.hint{display:flex; align-items:flex-start; gap:8px; margin-top:-6px; rotate:-1.5deg; font-size:19px}
+.hint svg{flex:none; width:24px; height:auto; margin-top:-6px; overflow:visible}
+.reach{display:flex; flex-direction:column; gap:8px; padding-top:2px; font-size:14.5px}
+.mail{display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 8px}
+.email{font-weight:500; color:var(--ink); user-select:all; overflow-wrap:anywhere}
+.links{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 16px}
+.links .muted{margin-left:-8px; font-size:13px; color:var(--ink-3)}
 
-/* sections */
-.sec{padding-top:clamp(56px,8vw,92px)}
-h2{font:italic 400 clamp(27px,3.2vw,34px)/1.1 var(--text); letter-spacing:-.01em; padding-bottom:22px}
-:root[data-lang="zh"] h2{font-style:normal; font-weight:600; letter-spacing:.02em; font-size:clamp(24px,2.8vw,29px)}
-.entry{display:flex; flex-direction:column; gap:14px; max-width:var(--col)}
-.entry + .entry{margin-top:clamp(42px,5.4vw,60px)}
-.entry-head{display:flex; flex-direction:column; gap:7px}
-h3{font:600 clamp(21px,2.2vw,24px)/1.28 var(--text); letter-spacing:-.008em; text-wrap:balance}
-:root[data-lang="zh"] h3{line-height:1.5; letter-spacing:0}
-.meta{font-style:italic; font-size:17px; line-height:1.5; color:var(--ink-3)}
-:root[data-lang="zh"] .meta{font-style:normal; font-size:15.5px; line-height:1.7}
-.authors{font-size:17px; line-height:1.5; color:var(--ink-2)}
-.authors b{font-weight:600; color:var(--ink)}
-.links{display:flex; flex-wrap:wrap; gap:4px 24px; font-size:17px}
-.venue{position:relative; align-self:flex-start; margin:0 0 8px 8px; padding:2px 6px 3px; font:600 15px/1.3 var(--text); letter-spacing:.05em}
-.ring{position:absolute; left:-16px; top:-8px; width:calc(100% + 32px); height:calc(100% + 16px); overflow:visible}
+/* right: sections of short rows */
+.sec{padding-top:clamp(26px,3.6vw,38px)}
+.sec:first-child{padding-top:0}
+.sec + .sec{margin-top:clamp(26px,3.6vw,38px); border-top:1px solid var(--rule)}
+.sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding-bottom:12px}
+h2{font:500 clamp(25px,2.8vw,30px)/1.1 var(--serif); letter-spacing:-.012em}
+.all{display:inline-flex; align-items:center; gap:6px; padding:6px 2px; border:0; background:none; color:var(--pen); font:500 14px/1 var(--sans); cursor:pointer; white-space:nowrap}
+.all:hover{text-decoration:underline; text-underline-offset:.2em}
+.chev{flex:none; width:11px; height:11px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; transition:rotate .3s}
+[aria-expanded="true"] > .chev,[aria-pressed="true"].all > .chev{rotate:180deg}
 
-/* the idea of the current project, sketched in pen */
-.sketch{
-  display:flex; flex-wrap:wrap; align-items:center; gap:8px 8px; padding-block:8px 2px; rotate:-.6deg;
-  font:600 clamp(21px,2.1vw,23.5px)/1.2 var(--hand); color:var(--pen);
+.item,.row{border-radius:6px; transition:opacity .25s, background-color .25s, box-shadow .25s}
+.dim{opacity:.3}
+.lit{background:color-mix(in srgb, var(--hl) 42%, transparent); box-shadow:0 0 0 10px color-mix(in srgb, var(--hl) 42%, transparent)}
+
+/* research items */
+.item{display:grid; grid-template-columns:176px minmax(0,1fr); column-gap:26px; padding-block:22px}
+.item + .item{border-top:1px solid var(--rule)}
+.item:first-of-type{padding-top:6px}
+.item:last-of-type{padding-bottom:4px}
+.thumb{display:flex; flex-direction:column; gap:12px; min-width:0}
+.card{
+  display:grid; place-items:center; width:100%; aspect-ratio:176 / 112; padding:8px; border:0; border-radius:3px;
+  background:var(--print); color:var(--print-pen);
+  box-shadow:0 1px 1px var(--shadow), 0 12px 22px -16px var(--shadow);
 }
-:root[data-lang="zh"] .sketch{font-weight:400}
-.sketch li{display:inline-flex; align-items:center; gap:8px}
-.sketch .arr{flex:none; width:36px; height:auto; overflow:visible}
-.sketch .circled{position:relative; margin-inline:6px; padding:3px 8px 4px}
+button.card{cursor:pointer}
+.card-note{font:600 20px/1.12 var(--hand); text-align:center; text-wrap:balance; rotate:-2deg}
+.mini{display:block; width:100%; height:100%; overflow:visible; fill:none; stroke:var(--print-pen); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; filter:url(#pen-fine)}
+.mini text{stroke:none; fill:var(--print-pen); font-family:var(--hand); font-weight:700}
+.mini .bar{fill:url(#hatch)}
+.mini .ref{stroke-width:1.3; stroke-dasharray:4 5; opacity:.8}
+.mini .rule{stroke-width:1.1; opacity:.6}
+.hatch-line{stroke:var(--print-pen); stroke-width:1.4}
+.venue{position:relative; align-self:flex-start; margin-left:10px; padding:1px 4px 2px; font:600 13px/1.3 var(--sans); letter-spacing:.02em; white-space:nowrap}
+.ring{position:absolute; left:-14px; top:-7px; width:calc(100% + 28px); height:calc(100% + 14px); overflow:visible}
+.status{display:inline-flex; align-items:center; gap:7px; font:500 13px/1.3 var(--sans); color:var(--ink-2)}
+.status::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--pen)}
+.item-body{min-width:0}
+h3{font:500 21px/1.25 var(--serif); letter-spacing:-.008em; text-wrap:balance}
+h3 a{color:inherit}
+h3 .out{font:400 15px/1 var(--sans); color:var(--pen)}
+.authors{padding-top:4px; font-size:14px; line-height:1.5; color:var(--ink-3)}
+.authors b{font-weight:600; color:var(--ink)}
+.sum{padding-top:8px; font:400 17px/1.5 var(--serif)}
+.row-links{display:flex; flex-wrap:wrap; align-items:center; gap:2px 20px; padding-top:8px; font-size:14.5px; font-weight:500}
+.more{display:inline-flex; align-items:center; gap:6px; padding:4px 0; border:0; background:none; color:var(--pen); font:inherit; cursor:pointer}
+.more:hover{text-decoration:underline; text-underline-offset:.2em}
 
-/* education + skills */
-.edu{display:flex; flex-direction:column; gap:5px; max-width:var(--col)}
-.edu + .edu{margin-top:26px}
-.edu-top{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:2px 20px}
-.when{font-style:italic; font-size:17px; color:var(--ink-3); white-space:nowrap}
-:root[data-lang="zh"] .when{font-style:normal; font-size:15.5px}
-.edu p{color:var(--ink-2)}
-.edu .small{font-size:17px; color:var(--ink-3)}
-.skills{display:grid; grid-template-columns:168px minmax(0,1fr); gap:10px 22px; max-width:var(--col); font-size:18px}
-.skills dt{font-style:italic; color:var(--ink-3)}
-:root[data-lang="zh"] .skills{font-size:17px}
-:root[data-lang="zh"] .skills dt{font-style:normal}
+/* detail panels: open by default without scripts, collapsed with them */
+.details{display:grid; grid-template-rows:1fr; transition:grid-template-rows .4s cubic-bezier(.3,.7,.2,1)}
+.details > .inner{min-height:0; overflow:hidden}
+.js .details:not(.is-open){grid-template-rows:0fr}
+.js .details:not(.is-open) > .inner{visibility:hidden; transition:visibility 0s .4s}
+.facts{display:grid; grid-template-columns:82px minmax(0,1fr); gap:9px 16px; padding-top:14px}
+.facts dt{padding-top:3px; font:600 11.5px/1.6 var(--sans); letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3)}
+.facts dd{font:400 16px/1.5 var(--serif); color:var(--ink-2)}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:4px 8px; font:600 20px/1.2 var(--hand); color:var(--pen)}
+.flow svg{flex:none; width:30px; height:auto; overflow:visible}
+.paperfig{margin-top:14px}
+.paperfig img{display:block; width:100%; height:auto; padding:8px; border-radius:3px; background:var(--print)}
+.paperfig figcaption{padding-top:6px; font-size:12.5px; line-height:1.5; color:var(--ink-3)}
+
+/* background rows */
+.row + .row{border-top:1px solid var(--rule)}
+.row-head{
+  display:grid; grid-template-columns:42px 214px minmax(0,1fr) 14px; align-items:center; column-gap:16px;
+  width:100%; padding:11px 0; border:0; background:none; text-align:left; cursor:pointer;
+}
+.row-org b{display:block; font:600 16px/1.3 var(--sans); color:var(--ink)}
+.row-when{display:block; font-size:13.5px; color:var(--ink-3)}
+.row-what{font-size:15px; line-height:1.45; color:var(--ink-2)}
+.row-head.more:hover{text-decoration:none}
+.row-head:hover .row-org b{color:var(--pen)}
+.row-head .chev{width:12px; height:12px; color:var(--pen)}
+.row-more{padding:0 30px 14px 58px; font:400 16px/1.5 var(--serif); color:var(--ink-2)}
+
+/* skills */
+.skills{display:grid; grid-template-columns:150px minmax(0,1fr); gap:9px 20px; font-size:15px}
+.skills dt{color:var(--ink-3)}
 .skills dd{color:var(--ink-2)}
+.skills .topic{color:var(--ink)}
 
 /* contact + footer */
-.contact .email{font-size:clamp(22px,2.7vw,28px)}
-.contact .reach{padding-top:10px}
+.contact p:not(.note){font:400 17px/1.5 var(--serif)}
+.contact .mail{padding-top:8px}
+.contact .email{font:500 clamp(18px,2.2vw,21px)/1.3 var(--sans)}
+.signoff{display:inline-block; padding-top:18px; rotate:-2deg}
 .foot{
   display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 24px;
-  margin-top:clamp(64px,9vw,104px); padding-block:22px 40px; border-top:1px solid var(--rule);
-  font-size:15px; font-style:italic; color:var(--ink-3);
+  margin-top:clamp(40px,6vw,64px); padding-block:18px 34px; border-top:1px solid var(--rule);
+  font-size:13.5px; color:var(--ink-3);
 }
-:root[data-lang="zh"] .foot{font-style:normal; font-size:14px}
 
-/* wide screens: notes hang in the right margin, next to the line they are about */
-@media (min-width:1024px){
-  .side{position:absolute; left:calc(100% + var(--gap) + 6px); top:var(--y, 2px); width:var(--marg); rotate:var(--r, -2deg); transform-origin:0 0}
-  .side .arrow{right:calc(100% + 8px); top:.05em; width:52px}
-}
-/* one column: the photo leads, notes sit under the line they are about */
-@media (max-width:1023.98px){
-  .page{max-width:calc(var(--col) + 2 * var(--gutter))}
+@media (max-width:899.98px){
   .top nav{display:none}
-  .hero{grid-template-columns:minmax(0,1fr); row-gap:30px}
-  .margin{order:-1; justify-content:flex-start; padding:14px 0 0 8px}
-  .print{width:176px; rotate:-3deg}
-  .print:hover{rotate:1deg}
-  .print figcaption{font-size:20px; padding:5px 4px 9px}
-  .side{align-self:flex-start; padding-left:40px; rotate:-1deg}
-  .side .arrow{left:2px; top:-12px; width:30px; scale:1 -1}
+  .layout{grid-template-columns:minmax(0,1fr); row-gap:34px; padding-top:0}
+  .me-top{display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:14px; align-items:start}
+  .print{grid-column:2; grid-row:1; width:112px; margin:10px 4px 0 0; rotate:3deg}
+  .print:hover{rotate:-1deg}
+  .cap{font-size:15px; padding:3px 2px 5px}
+  h1{font-size:clamp(34px,10.4vw,43px)}
+  .name{white-space:normal}
+  .item{grid-template-columns:minmax(0,1fr); row-gap:14px}
+  .thumb{flex-direction:row; align-items:center; gap:18px}
+  .card{flex:none; width:150px}
+  .row-head{grid-template-columns:42px minmax(0,1fr) 14px; row-gap:3px}
+  .row-what{grid-column:2}
+  .row-head .chev{grid-column:3; grid-row:1}
+  .row-more{padding:0 0 14px 58px}
 }
-@media (max-width:600px){
-  .skills{grid-template-columns:minmax(0,1fr); gap:2px}
-  .skills dd{padding-bottom:12px}
+@media (max-width:560px){
+  .facts{grid-template-columns:minmax(0,1fr); gap:1px}
+  .facts dd{padding-bottom:9px}
+  .skills{grid-template-columns:minmax(0,1fr); gap:1px}
+  .skills dd{padding-bottom:10px}
 }
 
 @media (prefers-reduced-motion:no-preference){
   .hi{animation:hello .7s cubic-bezier(.2,.8,.2,1) .15s backwards}
   .print{animation:drop .9s cubic-bezier(.2,.8,.2,1) .1s backwards}
 }
-@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} a,.print,.pen-btn{transition:none} }
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .print,.pen-btn,.tool,.chev,.details,.item,.row,.topic{transition:none}
+}
 @keyframes hello{from{opacity:0; translate:-10px 8px}}
-@keyframes drop{from{opacity:0; translate:0 -16px; scale:.96}}
+@keyframes drop{from{opacity:0; translate:0 -14px; scale:.96}}
 </style>
 </head>
 <body>
@@ -249,203 +294,283 @@ h3{font:600 clamp(21px,2.2vw,24px)/1.28 var(--text); letter-spacing:-.008em; tex
       <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="noise"/>
       <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
+    <filter id="pen-fine" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-40)">
+      <line class="hatch-line" x1="0" y1="0" x2="0" y2="6"/>
+    </pattern>
+    <symbol id="chev" viewBox="0 0 12 12"><path d="M2 4.2 L6 8 L10 4.2"/></symbol>
   </defs>
 </svg>
 
-<div class="page">
+<div class="page" id="top">
 
   <header class="top">
     <nav aria-label="Sections">
-      <a href="#now"><span class="en">Now</span><span class="zh" lang="zh-CN">正在做</span></a>
-      <a href="#papers"><span class="en">Papers</span><span class="zh" lang="zh-CN">论文</span></a>
-      <a href="#education"><span class="en">Education</span><span class="zh" lang="zh-CN">教育</span></a>
-      <a href="#contact"><span class="en">Contact</span><span class="zh" lang="zh-CN">联系</span></a>
+      <a href="#research">Research</a>
+      <a href="#background">Background</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" id="lang-en" data-set-lang="en" aria-pressed="true">EN</button>
-      <button type="button" id="lang-zh" data-set-lang="zh" aria-pressed="false" lang="zh-CN">中文</button>
-    </div>
+    <button type="button" class="tool theme" id="theme-toggle" aria-pressed="false" aria-label="Night mode" title="Day / night">
+      <svg class="ink icon sun" viewBox="0 0 32 32" aria-hidden="true"><path pathLength="1" d="M16 10 C 19.5 10, 22 12.5, 22 16 C 22 19.5, 19.5 22, 16 22 C 12.5 22, 10 19.5, 10 16 C 10 12.6, 12.4 10.2, 15.6 10"/><path pathLength="1" d="M16 3.5 V6.5 M16 25.5 V28.5 M3.5 16 H6.5 M25.5 16 H28.5 M7.2 7.2 L9.3 9.3 M22.7 22.7 L24.8 24.8 M7.2 24.8 L9.3 22.7 M22.7 9.3 L24.8 7.2"/></svg>
+      <svg class="ink icon moon" viewBox="0 0 32 32" aria-hidden="true"><path pathLength="1" d="M20 5.5 C 12 6, 6.5 12, 7.5 19 C 8.5 25, 14.5 28.5, 20.5 26.5 C 23.5 25.5, 25.8 23.3, 26.8 20.5 C 21 23, 14.5 19.5, 14.5 13 C 14.5 9.8, 16.6 7, 20 5.5"/></svg>
+    </button>
   </header>
 
-  <main id="top">
+  <div class="layout">
 
-    <section class="hero" aria-labelledby="name">
-      <div class="hero-text">
-        <p class="hi"><span class="en">Hi, I'm</span><span class="zh" lang="zh-CN">你好，我是</span></p>
-        <h1 id="name"><span class="name">Pengcheng Jing<svg class="ink underline" viewBox="0 0 320 24" aria-hidden="true"><path pathLength="1" d="M4 12 C 46 6, 104 4, 168 6 C 224 8, 276 12, 316 7"/><path pathLength="1" d="M34 20 C 96 15, 170 14, 246 17 C 262 18, 276 19, 288 20"/></svg></span></h1>
-        <p class="lead en">I work on making LLM agents more reliable on real tasks: <a href="#drift-bench">finding where they break</a>, <a href="#safiron">catching risky plans before they run</a>, and <a href="#tacit">giving them the unwritten knowledge experts rely on</a>.</p>
-        <p class="lead zh" lang="zh-CN">我的研究是让 LLM 智能体在真实任务中更可靠：<a href="#drift-bench">找出它们在哪里出错</a>、<a href="#safiron">在执行前拦下有风险的计划</a>，并<a href="#tacit">把专家没有写下来的知识交给它们</a>。</p>
-        <p class="bio en">I'm a master's student at Carnegie Mellon's Language Technologies Institute, working with Prof. Sherry Tongshuang Wu in collaboration with Bosch. Before CMU, I studied computer science at Xi'an Jiaotong University and did research with Prof. Xiangliang Zhang and Prof. Yanfang (Fanny) Ye at the University of Notre Dame.</p>
-        <p class="bio zh" lang="zh-CN">我是卡内基梅隆大学语言技术研究所（LTI）的硕士生，跟随 Sherry Tongshuang Wu 教授，与博世（Bosch）合作开展研究。此前，我在西安交通大学学习计算机科学与技术，并在圣母大学 Xiangliang Zhang 教授和 Yanfang (Fanny) Ye 教授的指导下做研究。</p>
-        <div class="reach">
-          <span class="mail">
-            <span class="email" id="email-hero">pengchej@andrew.cmu.edu</span>
-            <button type="button" class="pen-btn" id="copy-hero" data-copy="pengchej@andrew.cmu.edu" data-target="email-hero" aria-live="polite">
-              <span class="idle"><span class="en">(copy)</span><span class="zh" lang="zh-CN">（复制）</span></span>
-              <span class="done"><span class="en">copied!</span><span class="zh" lang="zh-CN">已复制！</span></span>
-              <span class="sel"><span class="en">selected</span><span class="zh" lang="zh-CN">已选中</span></span>
-            </button>
-          </span>
-          <a href="https://scholar.google.com/citations?user=sMRIWpQAAAAJ" target="_blank" rel="noopener">Google Scholar<span class="out" aria-hidden="true"> ↗</span></a>
-          <a href="https://github.com/pengchej-star" target="_blank" rel="noopener">GitHub<span class="out" aria-hidden="true"> ↗</span></a>
-          <a href="https://www.linkedin.com/in/pengchengjing-38906242b" target="_blank" rel="noopener">LinkedIn<span class="out" aria-hidden="true"> ↗</span></a>
-        </div>
-      </div>
-      <div class="margin">
+    <aside class="me" aria-label="About me">
+      <div class="me-top">
         <figure class="print">
-          <img src="photo.jpg" width="800" height="1000" alt="Portrait of Pengcheng Jing outdoors on a tree-lined path">
-          <figcaption><span class="en">Fig. 1: me</span><span class="zh" lang="zh-CN">图 1：本人</span></figcaption>
+          <img src="photo.jpg" width="480" height="600" alt="Portrait of Pengcheng Jing outdoors on a tree-lined path">
+          <figcaption class="cap">Fig. 1: me</figcaption>
         </figure>
+        <div class="me-id">
+          <p class="hi">Hi, I'm</p>
+          <h1><span class="name">Pengcheng Jing<svg class="ink underline" viewBox="0 0 320 24" aria-hidden="true"><path pathLength="1" d="M4 12 C 46 6, 104 4, 168 6 C 224 8, 276 12, 316 7"/><path pathLength="1" d="M34 20 C 96 15, 170 14, 246 17 C 262 18, 276 19, 288 20"/></svg></span></h1>
+          <ul class="affil">
+            <li><span class="stamp" aria-hidden="true">CMU</span><span><b>Carnegie Mellon</b> · M.S. student, LTI</span></li>
+            <li><span class="stamp" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 5.5 H13.5 V13 H2.5 Z M6 5.5 V3.5 H10 V5.5 M2.5 9 H13.5"/></svg></span><span><b>Bosch and IBM</b> · industry research collaborations</span></li>
+          </ul>
+        </div>
       </div>
-    </section>
 
-    <section class="sec" id="now" aria-labelledby="h-now">
-      <h2 id="h-now"><span class="en">Now</span><span class="zh" lang="zh-CN">正在做</span></h2>
-      <article class="entry" id="tacit">
-        <div class="entry-head">
-          <h3><span class="en">Understanding tacit knowledge gaps between LLM agents and human experts</span><span class="zh" lang="zh-CN">理解 LLM 智能体与人类专家之间的隐性知识差距</span></h3>
-          <p class="meta en">Aug 2026 – present · Research assistant with Prof. Sherry Tongshuang Wu, CMU · in collaboration with Bosch</p>
-          <p class="meta zh" lang="zh-CN">2026 年 8 月至今 · 研究助理，导师 Sherry Tongshuang Wu 教授（CMU）· 与博世（Bosch）合作</p>
+      <p class="bio">I work on making LLM agents more reliable on real tasks. My research covers <button type="button" class="topic" data-topic="eval" aria-pressed="false">agent evaluation</button>, <button type="button" class="topic" data-topic="safety" aria-pressed="false">agent safety</button>, and the <button type="button" class="topic" data-topic="tacit" aria-pressed="false">tacit knowledge</button> that agents are missing. On the engineering side, I build <button type="button" class="topic" data-topic="synth" aria-pressed="false">synthetic-data pipelines</button> and train models with <button type="button" class="topic" data-topic="train" aria-pressed="false">SFT and GRPO</button>.</p>
+      <p class="note hint" aria-hidden="true"><svg class="ink" viewBox="0 0 26 30"><path pathLength="1" d="M20 27 C 12 24, 7 16, 8 5"/><path pathLength="1" d="M3 11 L 8 5 L 14 10"/></svg><span>tap a keyword to see where I used it</span></p>
+
+      <div class="reach">
+        <span class="mail">
+          <span class="email" id="email-side">pengchej@andrew.cmu.edu</span>
+          <button type="button" class="pen-btn" id="copy-side" data-copy="pengchej@andrew.cmu.edu" data-target="email-side" aria-live="polite">
+            <span class="idle">(copy)</span><span class="done">copied!</span><span class="sel">selected</span>
+          </button>
+        </span>
+        <span class="links">
+          <a href="https://scholar.google.com/citations?user=sMRIWpQAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a><span class="muted">50+ citations</span>
+          <a href="https://github.com/pengchej-star" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/pengchengjing-38906242b" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </span>
+      </div>
+    </aside>
+
+    <main>
+
+      <section class="sec" id="research" aria-labelledby="h-research">
+        <div class="sec-head">
+          <h2 id="h-research">Selected research</h2>
+          <button type="button" class="all" id="all-details" aria-pressed="false" data-group="item"><span>Show all details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
         </div>
-        <div class="anch">
-          <p class="en"><mark class="hl">Tacit knowledge</mark> is the unwritten judgment experts apply at critical decision points. In collaboration with Bosch, we discover and extract this knowledge so that LLM agents can use it, and we investigate whether its absence is what drives agent failures on complex tasks.</p>
-          <p class="zh" lang="zh-CN"><mark class="hl">隐性知识</mark>是专家在关键决策点上运用的、没有写下来的判断。我们与博世合作，发现并提取这类知识，供智能体使用；同时研究它的缺失是否正是 LLM 智能体在复杂任务上失败的原因。</p>
-          <p class="note side" style="--r:-2.5deg">
-            <svg class="ink arrow" viewBox="0 0 60 40" aria-hidden="true"><path pathLength="1" d="M56 6 C 44 3, 24 8, 7 30"/><path pathLength="1" d="M9 17 L 7 30 L 20 26"/></svg>
-            <span class="en">tacit = known, but never written down</span><span class="zh" lang="zh-CN">隐性 = 心里明白，却没写下来</span>
-          </p>
-        </div>
-        <p class="en">I explore Meta Kaggle Code and InsightBench to reconstruct human problem-solving workflows and identify the decision points relevant to LLM agent failures.</p>
-        <p class="zh" lang="zh-CN">我基于 Meta Kaggle Code 和 InsightBench 还原人类解决问题的工作流程，找出与智能体失败相关的决策点。</p>
-        <ol class="sketch" aria-label="Expert workflows, then decision points, then tacit knowledge, then agents">
-          <li><span class="en">expert workflows</span><span class="zh" lang="zh-CN">专家的工作流程</span></li>
-          <li><svg class="ink arr" viewBox="0 0 46 18" aria-hidden="true"><path pathLength="1" d="M3 10 C 14 6, 28 12, 41 8"/><path pathLength="1" d="M33 3 L 41 8 L 34 14"/></svg><span class="en">decision points</span><span class="zh" lang="zh-CN">关键决策点</span></li>
-          <li><svg class="ink arr" viewBox="0 0 46 18" aria-hidden="true"><path pathLength="1" d="M3 9 C 15 12, 27 5, 41 9"/><path pathLength="1" d="M33 4 L 41 9 L 34 15"/></svg><span class="circled"><span class="en">tacit knowledge</span><span class="zh" lang="zh-CN">隐性知识</span><svg class="ink ring" viewBox="0 0 120 44" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M14 24 C 10 9, 38 4, 66 5 C 92 6, 114 12, 111 24 C 108 36, 78 41, 52 40 C 28 39, 8 34, 12 19 C 14 12, 22 8, 30 7"/></svg></span></li>
-          <li><svg class="ink arr" viewBox="0 0 46 18" aria-hidden="true"><path pathLength="1" d="M3 10 C 14 6, 28 12, 41 8"/><path pathLength="1" d="M33 3 L 41 8 L 34 14"/></svg><span class="en">agents</span><span class="zh" lang="zh-CN">智能体</span></li>
-        </ol>
-      </article>
-    </section>
 
-    <section class="sec" id="papers" aria-labelledby="h-papers">
-      <h2 id="h-papers"><span class="en">Papers</span><span class="zh" lang="zh-CN">论文</span></h2>
-
-      <article class="entry" id="drift-bench">
-        <div class="anch">
-          <div class="entry-head">
-            <p class="venue">ICML 2026<svg class="ink ring" viewBox="0 0 120 44" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M14 24 C 10 9, 38 4, 66 5 C 92 6, 114 12, 111 24 C 108 36, 78 41, 52 40 C 28 39, 8 34, 12 19 C 14 12, 22 8, 30 7"/></svg></p>
-            <h3>Drift-Bench: Diagnosing Cooperative Breakdowns in LLM Agents under Input Faults via Multi-Turn Interaction</h3>
-            <p class="authors">Han Bao, Zheyuan Zhang, <b>Pengcheng Jing</b>, Zhengqing Yuan, Kaiwen Shi, Yanfang Ye</p>
+        <article class="item" id="tacit" data-topics="tacit">
+          <div class="thumb">
+            <div class="card"><p class="card-note">tacit = known, but never written down</p></div>
+            <p class="status">Ongoing · 2026–</p>
           </div>
-          <p class="note side" style="--y:44px; --r:2deg">
-            <svg class="ink arrow" viewBox="0 0 60 40" aria-hidden="true"><path pathLength="1" d="M56 6 C 44 3, 24 8, 7 30"/><path pathLength="1" d="M9 17 L 7 30 L 20 26"/></svg>
-            <span class="en">what if the instruction itself is flawed?</span><span class="zh" lang="zh-CN">如果指令本身就有问题呢？</span>
-          </p>
-        </div>
-        <p class="en">A multi-turn benchmark for agents that receive flawed instructions. We inject four types of input faults into tasks verified as solvable, across white-box OS and database environments (AgentBench) and black-box API environments (StableToolBench). I designed five simulated user personas with distinct communication and decision-making styles, plus five clarification actions for handling incomplete, ambiguous, or risky instructions.</p>
-        <p class="en">With clarification disabled, the seven LLM agents we evaluated dropped on average <mark class="hl">about 45% on OS/DB tasks and 21% on API tasks</mark> relative to fault-free instructions. Clarification partly restored OS/DB task success but reduced API reliability, possibly by disrupting tool-call formatting and causing premature abandonment after recoverable API errors.</p>
-        <p class="zh" lang="zh-CN">一个多轮评测基准，考察智能体收到有缺陷的指令时如何应对。我们在已验证可解的任务中注入四类输入缺陷，覆盖白盒的操作系统与数据库环境（AgentBench）和黑盒的 API 环境（StableToolBench）。我设计了五种沟通方式和决策风格各不相同的模拟用户画像，以及五种澄清动作，用来应对不完整、有歧义或有风险的指令。</p>
-        <p class="zh" lang="zh-CN">关闭澄清时，我们评测的 7 个 LLM 智能体相对于无缺陷指令，表现平均下降<mark class="hl">约 45%（OS/DB 任务）和 21%（API 任务）</mark>。开启澄清后，OS/DB 任务的成功率部分恢复，API 任务的可靠性却有所下降，可能是因为澄清干扰了工具调用格式，并导致智能体在遇到可恢复的 API 错误后过早放弃。</p>
-        <p class="meta en">Sep 2025 – Feb 2026 · Research assistant with Prof. Yanfang (Fanny) Ye, University of Notre Dame</p>
-        <p class="meta zh" lang="zh-CN">2025 年 9 月 – 2026 年 2 月 · 研究助理，导师 Yanfang (Fanny) Ye 教授（圣母大学）</p>
-        <p class="links">
-          <a href="https://arxiv.org/abs/2602.02455" target="_blank" rel="noopener">arXiv<span class="out" aria-hidden="true"> ↗</span></a>
-          <a href="https://icml.cc/virtual/2026/poster/60842" target="_blank" rel="noopener"><span class="en">ICML page</span><span class="zh" lang="zh-CN">ICML 页面</span><span class="out" aria-hidden="true"> ↗</span></a>
-        </p>
-      </article>
-
-      <article class="entry" id="safiron">
-        <div class="anch">
-          <div class="entry-head">
-            <p class="venue">ICLR 2026<svg class="ink ring" viewBox="0 0 120 44" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M12 21 C 12 8, 40 3, 68 5 C 96 7, 113 14, 110 25 C 106 37, 76 40, 50 40 C 26 39, 9 32, 13 18 C 16 11, 24 8, 32 8"/></svg></p>
-            <h3>Building a Foundational Guardrail for General Agentic Systems via Synthetic Data</h3>
-            <p class="authors">Yue Huang, Hang Hua, Yujun Zhou, <b>Pengcheng Jing</b>, et al.</p>
+          <div class="item-body">
+            <h3>Tacit knowledge for LLM agents</h3>
+            <p class="authors">With Prof. Sherry Tongshuang Wu, CMU · in collaboration with Bosch</p>
+            <p class="sum">Discovering and extracting <mark class="hl">the unwritten judgment experts apply at critical decision points</mark>, so that LLM agents can use it.</p>
+            <div class="row-links">
+              <button type="button" class="more" aria-expanded="false" aria-controls="d-tacit"><span>Details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+            </div>
+            <div class="details" id="d-tacit"><div class="inner">
+              <dl class="facts">
+                <dt>Project</dt>
+                <dd>Understanding tacit knowledge gaps between LLM agents and human experts</dd>
+                <dt>What</dt>
+                <dd>Tacit knowledge is the unwritten judgment experts apply at critical decision points. With Bosch, we discover and extract this knowledge so that LLM agents can use it, and we investigate whether its absence is what drives agent failures on complex tasks.</dd>
+                <dt>My role</dt>
+                <dd>I explore Meta Kaggle Code and InsightBench to reconstruct human problem-solving workflows and identify the decision points relevant to LLM agent failures.</dd>
+                <dt>In short</dt>
+                <dd>
+                  <ol class="flow" aria-label="Expert workflows, then decision points, then tacit knowledge, then agents">
+                    <li>expert workflows</li>
+                    <li aria-hidden="true"><svg class="ink" viewBox="0 0 46 18"><path pathLength="1" d="M3 10 C 14 6, 28 12, 41 8"/><path pathLength="1" d="M33 3 L 41 8 L 34 14"/></svg></li>
+                    <li>decision points</li>
+                    <li aria-hidden="true"><svg class="ink" viewBox="0 0 46 18"><path pathLength="1" d="M3 9 C 15 12, 27 5, 41 9"/><path pathLength="1" d="M33 4 L 41 9 L 34 15"/></svg></li>
+                    <li>tacit knowledge</li>
+                    <li aria-hidden="true"><svg class="ink" viewBox="0 0 46 18"><path pathLength="1" d="M3 10 C 14 6, 28 12, 41 8"/><path pathLength="1" d="M33 3 L 41 8 L 34 14"/></svg></li>
+                    <li>agents</li>
+                  </ol>
+                </dd>
+                <dt>When</dt>
+                <dd>Aug 2026 – present · Research assistant</dd>
+              </dl>
+            </div></div>
           </div>
-          <p class="note side" style="--y:44px; --r:-2deg">
-            <svg class="ink arrow" viewBox="0 0 60 40" aria-hidden="true"><path pathLength="1" d="M56 6 C 44 3, 24 8, 7 30"/><path pathLength="1" d="M9 17 L 7 30 L 20 26"/></svg>
-            <span class="en">check the plan before it runs</span><span class="zh" lang="zh-CN">先审计划，再执行</span>
-          </p>
-        </div>
-        <p class="en">Safiron is an 8B-parameter guardrail, developed with IBM, that detects risky agent plans, classifies the risk, and explains its judgment before execution. I built the AuraGen-based synthetic-data pipeline, distilling DeepSeek-R1-generated quality annotations into a Ministral-based scorer whose scores fed an SVM filter to select training samples, and trained Safiron with supervised fine-tuning followed by GRPO.</p>
-        <p class="en">It reaches <mark class="hl">94.9% binary classification accuracy</mark> and 64.6% risk-category accuracy on Pre-Exec Bench, outperforming all 12 general-purpose LLM baselines we evaluated.</p>
-        <p class="zh" lang="zh-CN">Safiron 是与 IBM 合作开发的 80 亿参数护栏模型，能在执行之前识别有风险的智能体计划、对风险分类，并解释判断依据。我基于 AuraGen 搭建了合成数据流水线：把 DeepSeek-R1 生成的质量标注蒸馏到基于 Ministral 的打分模型中，再由 SVM 过滤器根据打分筛选训练样本；训练上先做监督微调，再做 GRPO。</p>
-        <p class="zh" lang="zh-CN">在 Pre-Exec Bench 上，它的<mark class="hl">二分类准确率达到 94.9%</mark>，风险类别准确率为 64.6%，超过了我们评测的全部 12 个通用 LLM 基线。</p>
-        <p class="meta en">Jul 2025 – Sep 2025 · Research assistant with Prof. Xiangliang Zhang, University of Notre Dame · in collaboration with IBM</p>
-        <p class="meta zh" lang="zh-CN">2025 年 7 月 – 9 月 · 研究助理，导师 Xiangliang Zhang 教授（圣母大学）· 与 IBM 合作</p>
-        <p class="links">
-          <a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">arXiv<span class="out" aria-hidden="true"> ↗</span></a>
-          <a href="https://iclr.cc/virtual/2026/poster/10009978" target="_blank" rel="noopener"><span class="en">ICLR page</span><span class="zh" lang="zh-CN">ICLR 页面</span><span class="out" aria-hidden="true"> ↗</span></a>
-        </p>
-      </article>
-    </section>
+        </article>
 
-    <section class="sec" id="education" aria-labelledby="h-edu">
-      <h2 id="h-edu"><span class="en">Education</span><span class="zh" lang="zh-CN">教育经历</span></h2>
-      <article class="edu">
-        <div class="edu-top">
-          <h3><span class="en">Carnegie Mellon University</span><span class="zh" lang="zh-CN">卡内基梅隆大学</span></h3>
-          <span class="when"><span class="en">expected Dec 2027</span><span class="zh" lang="zh-CN">预计 2027 年 12 月毕业</span></span>
-        </div>
-        <p class="en">M.S. in Intelligent Information Systems, Language Technologies Institute, School of Computer Science</p>
-        <p class="zh" lang="zh-CN">智能信息系统硕士（MIIS），计算机学院语言技术研究所</p>
-        <p class="small en">Coursework: Deep Learning Systems, Advanced NLP, Intro to QA with LLMs</p>
-        <p class="small zh" lang="zh-CN">相关课程：Deep Learning Systems、Advanced NLP、Intro to QA with LLMs</p>
-      </article>
-      <article class="edu">
-        <div class="edu-top">
-          <h3><span class="en">Xi'an Jiaotong University</span><span class="zh" lang="zh-CN">西安交通大学</span></h3>
-          <span class="when"><span class="en">Jun 2026</span><span class="zh" lang="zh-CN">2026 年 6 月</span></span>
-        </div>
-        <p class="en">B.S. in Computer Science and Technology</p>
-        <p class="zh" lang="zh-CN">计算机科学与技术 学士</p>
-        <p class="small en">GPA 3.91 / 4.00 · First-Class Scholarship</p>
-        <p class="small zh" lang="zh-CN">GPA 3.91 / 4.00 · 一等奖学金</p>
-      </article>
-    </section>
-
-    <section class="sec" id="skills" aria-labelledby="h-skills">
-      <h2 id="h-skills"><span class="en">Skills</span><span class="zh" lang="zh-CN">技能</span></h2>
-      <dl class="skills">
-        <dt><span class="en">Machine learning</span><span class="zh" lang="zh-CN">机器学习</span></dt>
-        <dd><span class="en">Supervised fine-tuning, GRPO, synthetic data generation, LLM agent evaluation, benchmark design</span><span class="zh" lang="zh-CN">监督微调、GRPO、合成数据生成、LLM 智能体评测、基准设计</span></dd>
-        <dt><span class="en">Frameworks</span><span class="zh" lang="zh-CN">框架</span></dt>
-        <dd>PyTorch, Hugging Face Transformers, vLLM, scikit-learn</dd>
-        <dt><span class="en">Languages &amp; tools</span><span class="zh" lang="zh-CN">语言与工具</span></dt>
-        <dd>Python, C/C++, SQL, Bash, Git, Linux, Docker</dd>
-      </dl>
-    </section>
-
-    <section class="sec contact" id="contact" aria-labelledby="h-contact">
-      <h2 id="h-contact"><span class="en">Contact</span><span class="zh" lang="zh-CN">联系方式</span></h2>
-      <div class="entry">
-        <div class="anch">
-          <p class="en">The best way to reach me is email.</p>
-          <p class="zh" lang="zh-CN">发邮件是联系我最方便的方式。</p>
-          <span class="mail">
-            <span class="email" id="email-contact">pengchej@andrew.cmu.edu</span>
-            <button type="button" class="pen-btn" id="copy-contact" data-copy="pengchej@andrew.cmu.edu" data-target="email-contact" aria-live="polite">
-              <span class="idle"><span class="en">(copy)</span><span class="zh" lang="zh-CN">（复制）</span></span>
-              <span class="done"><span class="en">copied!</span><span class="zh" lang="zh-CN">已复制！</span></span>
-              <span class="sel"><span class="en">selected</span><span class="zh" lang="zh-CN">已选中</span></span>
+        <article class="item" id="drift-bench" data-topics="eval">
+          <div class="thumb">
+            <button type="button" class="card" id="card-faults" aria-label="Chart: with fault-free instructions as 100, performance falls to about 55 on OS and database tasks and about 79 on API tasks. Press to replay.">
+              <svg class="mini" viewBox="0 0 176 112" aria-hidden="true">
+                <line class="ref" x1="24" y1="18" x2="170" y2="18"/>
+                <text x="2" y="23" font-size="13">100</text>
+                <rect class="bar" id="bar-os" x="27" y="50.4" width="38" height="39.6"/>
+                <rect class="bar" id="bar-api" x="100" y="33.1" width="38" height="56.9"/>
+                <path d="M16 91 C 60 89, 120 92, 168 90"/>
+                <text id="val-os" x="69" y="63" font-size="16">≈55</text>
+                <text id="val-api" x="142" y="46" font-size="16">≈79</text>
+                <text x="46" y="107" font-size="14" text-anchor="middle">OS / DB</text>
+                <text x="119" y="107" font-size="14" text-anchor="middle">API</text>
+              </svg>
             </button>
-          </span>
-          <p class="note side" style="--y:40px; --r:-3deg">
-            <svg class="ink arrow" viewBox="0 0 60 40" aria-hidden="true"><path pathLength="1" d="M56 6 C 44 3, 24 8, 7 30"/><path pathLength="1" d="M9 17 L 7 30 L 20 26"/></svg>
-            <span class="en">say hi!</span><span class="zh" lang="zh-CN">来打个招呼！</span>
-          </p>
-        </div>
-        <div class="reach">
-          <a href="https://scholar.google.com/citations?user=sMRIWpQAAAAJ" target="_blank" rel="noopener">Google Scholar<span class="out" aria-hidden="true"> ↗</span></a>
-          <a href="https://github.com/pengchej-star" target="_blank" rel="noopener">GitHub<span class="out" aria-hidden="true"> ↗</span></a>
-          <a href="https://www.linkedin.com/in/pengchengjing-38906242b" target="_blank" rel="noopener">LinkedIn<span class="out" aria-hidden="true"> ↗</span></a>
-        </div>
-      </div>
-    </section>
+            <p class="venue">ICML 2026<svg class="ink ring" viewBox="0 0 120 44" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M14 24 C 10 9, 38 4, 66 5 C 92 6, 114 12, 111 24 C 108 36, 78 41, 52 40 C 28 39, 8 34, 12 19 C 14 12, 22 8, 30 7"/></svg></p>
+          </div>
+          <div class="item-body">
+            <h3><a href="https://arxiv.org/abs/2602.02455" target="_blank" rel="noopener">Drift-Bench: what agents do when the instruction is flawed<span class="out" aria-hidden="true"> ↗</span></a></h3>
+            <p class="authors">Han Bao, Zheyuan Zhang, <b>Pengcheng Jing</b>, Zhengqing Yuan, Kaiwen Shi, Yanfang Ye</p>
+            <p class="sum">A multi-turn benchmark for agents that receive flawed instructions. With clarification disabled, 7 LLM agents dropped <mark class="hl">about 45% on OS/DB tasks and 21% on API tasks</mark> relative to fault-free instructions.</p>
+            <div class="row-links">
+              <button type="button" class="more" aria-expanded="false" aria-controls="d-drift"><span>Details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+              <a href="https://arxiv.org/abs/2602.02455" target="_blank" rel="noopener">arXiv ↗</a>
+              <a href="https://proceedings.mlr.press/v306/bao26e.html" target="_blank" rel="noopener">Proceedings ↗</a>
+              <a href="https://icml.cc/virtual/2026/poster/60842" target="_blank" rel="noopener">Poster ↗</a>
+            </div>
+            <div class="details" id="d-drift"><div class="inner">
+              <dl class="facts">
+                <dt>Title</dt>
+                <dd>Drift-Bench: Diagnosing Cooperative Breakdowns in LLM Agents under Input Faults via Multi-Turn Interaction</dd>
+                <dt>My role</dt>
+                <dd>Co-developed the benchmark across white-box OS and database environments (AgentBench) and black-box API environments (StableToolBench), injecting 4 types of input faults into tasks verified as solvable. Designed 5 simulated user personas with distinct communication and decision-making styles, plus 5 clarification actions for incomplete, ambiguous, or risky instructions.</dd>
+                <dt>Finding</dt>
+                <dd>Clarification partly restored OS/DB task success but reduced API reliability, possibly by disrupting tool-call formatting and causing premature abandonment after recoverable API errors.</dd>
+                <dt>When</dt>
+                <dd>Sep 2025 – Feb 2026 · Research assistant with Prof. Yanfang (Fanny) Ye, University of Notre Dame</dd>
+              </dl>
+              <figure class="paperfig">
+                <img src="fig-drift-bench.png" width="1022" height="219" loading="lazy" alt="Pipeline of Drift-Bench: perturb verified tasks, let an agent talk with a simulated user who has one of five personas, then evaluate.">
+                <figcaption>Pipeline overview, Figure 2 of <a href="https://arxiv.org/abs/2602.02455" target="_blank" rel="noopener">the paper</a> (CC BY 4.0).</figcaption>
+              </figure>
+            </div></div>
+          </div>
+        </article>
 
-  </main>
+        <article class="item" id="safiron" data-topics="safety synth train">
+          <div class="thumb">
+            <button type="button" class="card" id="card-acc" aria-label="Chart: Safiron reaches 94.9 percent binary classification accuracy and 64.6 percent risk-category accuracy. Press to replay.">
+              <svg class="mini" viewBox="0 0 176 112" aria-hidden="true">
+                <text x="6" y="22" font-size="14">risky or not</text>
+                <text x="170" y="22" font-size="15" text-anchor="end">94.9%</text>
+                <rect class="bar" data-w="155.6" x="6" y="29" width="155.6" height="13"/>
+                <line class="rule" x1="6" y1="45" x2="170" y2="45"/>
+                <text x="6" y="72" font-size="14">which risk</text>
+                <text x="170" y="72" font-size="15" text-anchor="end">64.6%</text>
+                <rect class="bar" data-w="105.9" x="6" y="79" width="105.9" height="13"/>
+                <line class="rule" x1="6" y1="95" x2="170" y2="95"/>
+                <text x="6" y="109" font-size="12">0</text>
+                <text x="170" y="109" font-size="12" text-anchor="end">100%</text>
+              </svg>
+            </button>
+            <p class="venue">ICLR 2026<svg class="ink ring" viewBox="0 0 120 44" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M12 21 C 12 8, 40 3, 68 5 C 96 7, 113 14, 110 25 C 106 37, 76 40, 50 40 C 26 39, 9 32, 13 18 C 16 11, 24 8, 32 8"/></svg></p>
+          </div>
+          <div class="item-body">
+            <h3><a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">Safiron: a guardrail that checks agent plans before they run<span class="out" aria-hidden="true"> ↗</span></a></h3>
+            <p class="authors">Yue Huang, Hang Hua, Yujun Zhou, <b>Pengcheng Jing</b>, …, Xiangliang Zhang</p>
+            <p class="sum">An 8B-parameter guardrail, built with IBM, that flags risky agent plans, classifies the risk, and explains why before execution. <mark class="hl">94.9% binary accuracy</mark>, ahead of all 12 general-purpose LLM baselines.</p>
+            <div class="row-links">
+              <button type="button" class="more" aria-expanded="false" aria-controls="d-safiron"><span>Details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+              <a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">arXiv ↗</a>
+              <a href="https://iclr.cc/virtual/2026/poster/10009978" target="_blank" rel="noopener">Poster ↗</a>
+            </div>
+            <div class="details" id="d-safiron"><div class="inner">
+              <dl class="facts">
+                <dt>Title</dt>
+                <dd>Building a Foundational Guardrail for General Agentic Systems via Synthetic Data</dd>
+                <dt>Authors</dt>
+                <dd>Yue Huang, Hang Hua, Yujun Zhou, Pengcheng Jing, Manish Nagireddy, Inkit Padhi, Greta Dolcetti, Zhangchen Xu, Subhajit Chaudhury, Ambrish Rawat, Liubov Nedoshivina, Pin-Yu Chen, Prasanna Sattigeri, Xiangliang Zhang</dd>
+                <dt>My role</dt>
+                <dd>Built the AuraGen-based synthetic-data pipeline, distilling DeepSeek-R1-generated quality annotations into a Ministral-based scorer whose scores fed an SVM filter to select training samples. Trained Safiron with supervised fine-tuning followed by GRPO, using a mix of samples the fine-tuned model classified correctly and incorrectly to stabilize reinforcement learning.</dd>
+                <dt>Result</dt>
+                <dd>94.9% binary classification accuracy and 64.6% risk-category accuracy on Pre-Exec Bench, outperforming all 12 general-purpose LLM baselines evaluated.</dd>
+                <dt>When</dt>
+                <dd>Jul 2025 – Sep 2025 · Research assistant with Prof. Xiangliang Zhang, University of Notre Dame · with IBM</dd>
+              </dl>
+              <figure class="paperfig">
+                <img src="fig-safiron.png" width="650" height="226" loading="lazy" alt="Training pipeline of Safiron: supervised fine-tuning, then selecting hard and easy samples, then reinforcement learning.">
+                <figcaption>Training pipeline, Figure 3 of <a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">the paper</a> (CC BY-NC-SA 4.0).</figcaption>
+              </figure>
+            </div></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="sec" id="background" aria-labelledby="h-background">
+        <div class="sec-head">
+          <h2 id="h-background">Background</h2>
+          <button type="button" class="all" id="all-rows" aria-pressed="false" data-group="row"><span>Expand all</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+        </div>
+
+        <div class="row" data-topics="tacit">
+          <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-cmu">
+            <span class="stamp lg" aria-hidden="true">CMU</span>
+            <span class="row-org"><b>Carnegie Mellon University</b><span class="row-when">Expected Dec 2027</span></span>
+            <span class="row-what">M.S. in Intelligent Information Systems · Language Technologies Institute</span>
+            <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
+          </button>
+          <div class="details" id="b-cmu"><div class="inner">
+            <p class="row-more">School of Computer Science, Pittsburgh. Coursework: Deep Learning Systems, Advanced NLP, Intro to QA with LLMs. Research assistant with Prof. Sherry Tongshuang Wu since Aug 2026, in collaboration with Bosch.</p>
+          </div></div>
+        </div>
+
+        <div class="row" data-topics="eval safety synth train">
+          <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-nd">
+            <span class="stamp lg" aria-hidden="true">ND</span>
+            <span class="row-org"><b>University of Notre Dame</b><span class="row-when">Jul 2025 – Feb 2026</span></span>
+            <span class="row-what">Research assistant · agent safety and evaluation</span>
+            <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
+          </button>
+          <div class="details" id="b-nd"><div class="inner">
+            <p class="row-more">With Prof. Xiangliang Zhang on Safiron, in collaboration with IBM (Jul – Sep 2025), and with Prof. Yanfang (Fanny) Ye on Drift-Bench (Sep 2025 – Feb 2026).</p>
+          </div></div>
+        </div>
+
+        <div class="row">
+          <button type="button" class="row-head more" aria-expanded="false" aria-controls="b-xjtu">
+            <span class="stamp lg" aria-hidden="true">XJTU</span>
+            <span class="row-org"><b>Xi'an Jiaotong University</b><span class="row-when">Jun 2026</span></span>
+            <span class="row-what">B.S. in Computer Science and Technology · GPA 3.91 / 4.00</span>
+            <svg class="chev" aria-hidden="true"><use href="#chev"/></svg>
+          </button>
+          <div class="details" id="b-xjtu"><div class="inner">
+            <p class="row-more">Xi'an, China. First-Class Scholarship.</p>
+          </div></div>
+        </div>
+      </section>
+
+      <section class="sec" id="skills" aria-labelledby="h-skills">
+        <div class="sec-head"><h2 id="h-skills">Skills</h2></div>
+        <dl class="skills">
+          <dt>Machine learning</dt>
+          <dd><button type="button" class="topic" data-topic="train" aria-pressed="false">Supervised fine-tuning</button>, <button type="button" class="topic" data-topic="train" aria-pressed="false">GRPO</button>, <button type="button" class="topic" data-topic="synth" aria-pressed="false">synthetic data generation</button>, <button type="button" class="topic" data-topic="eval" aria-pressed="false">LLM agent evaluation</button>, <button type="button" class="topic" data-topic="eval" aria-pressed="false">benchmark design</button></dd>
+          <dt>Frameworks</dt>
+          <dd>PyTorch, Hugging Face Transformers, vLLM, scikit-learn</dd>
+          <dt>Languages &amp; tools</dt>
+          <dd>Python, C/C++, SQL, Bash, Git, Linux, Docker</dd>
+        </dl>
+      </section>
+
+      <section class="sec contact" id="contact" aria-labelledby="h-contact">
+        <div class="sec-head"><h2 id="h-contact">Contact</h2></div>
+        <p>The best way to reach me is email.</p>
+        <span class="mail">
+          <span class="email" id="email-contact">pengchej@andrew.cmu.edu</span>
+          <button type="button" class="pen-btn" id="copy-contact" data-copy="pengchej@andrew.cmu.edu" data-target="email-contact" aria-live="polite">
+            <span class="idle">(copy)</span><span class="done">copied!</span><span class="sel">selected</span>
+          </button>
+        </span>
+        <p class="note signoff">thanks for reading!</p>
+      </section>
+
+    </main>
+  </div>
 
   <footer class="foot">
     <span>© 2026 Pengcheng Jing</span>
-    <span><span class="en">Last updated November 2026</span><span class="zh" lang="zh-CN">最后更新：2026 年 11 月</span></span>
+    <span>Pittsburgh · Updated Nov 2026</span>
   </footer>
 
 </div>
@@ -453,38 +578,49 @@ h3{font:600 clamp(21px,2.2vw,24px)/1.28 var(--text); letter-spacing:-.008em; tex
 <script>
 (function () {
   var root = document.documentElement;
-  var KEY = 'pj-site-lang';
-  var zhFontsLoaded = false;
+  var calm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  function $(id) { return document.getElementById(id); }
+  function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
 
-  // Chinese fonts are large, so they load only when Chinese is shown.
-  function loadZhFonts() {
-    if (zhFontsLoaded) return;
-    zhFontsLoaded = true;
-    var l = document.createElement('link');
-    l.rel = 'stylesheet';
-    l.href = 'https://fonts.googleapis.com/css2?family=Long+Cang&family=Noto+Serif+SC:wght@400;600&display=swap';
-    document.head.appendChild(l);
+  /* ---- day / night ---- */
+  var THEME_KEY = 'pj-theme';
+  var themeBtn = $('theme-toggle');
+  var darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  function isDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return !!(darkQuery && darkQuery.matches);
   }
-
-  function setLang(lang, save) {
-    if (lang === 'zh') loadZhFonts();
-    root.setAttribute('data-lang', lang);
-    root.lang = lang === 'zh' ? 'zh-CN' : 'en';
-    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === lang));
-    });
-    if (save) { try { localStorage.setItem(KEY, lang); } catch (e) {} }
+  function syncThemeButton() { themeBtn.setAttribute('aria-pressed', String(isDark())); }
+  function setTheme(next, x, y) {
+    function apply() { root.setAttribute('data-theme', next); syncThemeButton(); }
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+    if (calm) { apply(); return; }
+    if (!document.startViewTransition) {
+      root.classList.add('theme-fade');
+      setTimeout(function () { root.classList.remove('theme-fade'); }, 600);
+      apply();
+      return;
+    }
+    var r = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+    var vt = document.startViewTransition(apply);
+    vt.ready.then(function () {
+      root.animate(
+        { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + r + 'px at ' + x + 'px ' + y + 'px)'] },
+        { duration: 700, easing: 'cubic-bezier(.4,0,.2,1)', pseudoElement: '::view-transition-new(root)' }
+      );
+    }).catch(function () {});
   }
-
-  var saved = null;
-  try { saved = localStorage.getItem(KEY); } catch (e) {}
-  setLang(saved === 'zh' ? 'zh' : 'en', false);
-
-  document.querySelectorAll('[data-set-lang]').forEach(function (b) {
-    b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang'), true); });
+  themeBtn.addEventListener('click', function () {
+    var b = themeBtn.getBoundingClientRect();
+    setTheme(isDark() ? 'light' : 'dark', b.left + b.width / 2, b.top + b.height / 2);
   });
+  if (darkQuery && darkQuery.addEventListener) darkQuery.addEventListener('change', syncThemeButton);
+  syncThemeButton();
 
-  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  /* ---- copy the email address ---- */
+  all('[data-copy]').forEach(function (btn) {
     var timer;
     function flash(cls) {
       btn.classList.remove('is-done', 'is-sel');
@@ -493,7 +629,7 @@ h3{font:600 clamp(21px,2.2vw,24px)/1.28 var(--text); letter-spacing:-.008em; tex
       timer = setTimeout(function () { btn.classList.remove(cls); }, 1800);
     }
     function selectText() {
-      var el = document.getElementById(btn.getAttribute('data-target'));
+      var el = $(btn.getAttribute('data-target'));
       if (el) {
         var range = document.createRange();
         range.selectNodeContents(el);
@@ -510,17 +646,121 @@ h3{font:600 clamp(21px,2.2vw,24px)/1.28 var(--text); letter-spacing:-.008em; tex
     });
   });
 
-  // Pen strokes and highlights draw themselves the first time they scroll into view.
-  // Without this script (or with reduced motion) everything is simply already drawn.
-  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ---- rows that open for detail ---- */
+  var groups = { item: $('all-details'), row: $('all-rows') };
+  var labels = { item: ['Show all details', 'Hide all details'], row: ['Expand all', 'Collapse all'] };
+  function groupOf(btn) { return btn.classList.contains('row-head') ? 'row' : 'item'; }
+  function setOpen(btn, open) {
+    btn.setAttribute('aria-expanded', String(open));
+    $(btn.getAttribute('aria-controls')).classList.toggle('is-open', open);
+  }
+  function syncGroup(name) {
+    var btns = all('.more').filter(function (b) { return groupOf(b) === name; });
+    var allOpen = btns.every(function (b) { return b.getAttribute('aria-expanded') === 'true'; });
+    groups[name].setAttribute('aria-pressed', String(allOpen));
+    groups[name].querySelector('span').textContent = labels[name][allOpen ? 1 : 0];
+  }
+  all('.more').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setOpen(btn, btn.getAttribute('aria-expanded') !== 'true');
+      syncGroup(groupOf(btn));
+    });
+  });
+  Object.keys(groups).forEach(function (name) {
+    groups[name].addEventListener('click', function () {
+      var open = groups[name].getAttribute('aria-pressed') !== 'true';
+      all('.more').forEach(function (b) { if (groupOf(b) === name) setOpen(b, open); });
+      syncGroup(name);
+    });
+  });
+
+  /* ---- keywords: hover or tap one to see where it was used ---- */
+  var topics = all('.topic');
+  var targets = all('[data-topics]');
+  var locked = null;
+  function show(topic) {
+    targets.forEach(function (el) {
+      var hit = !!topic && (' ' + el.getAttribute('data-topics') + ' ').indexOf(' ' + topic + ' ') !== -1;
+      el.classList.toggle('lit', hit);
+      el.classList.toggle('dim', !!topic && !hit && el.classList.contains('item'));
+    });
+  }
+  function syncTopics() {
+    topics.forEach(function (t) { t.setAttribute('aria-pressed', String(t.getAttribute('data-topic') === locked)); });
+  }
+  topics.forEach(function (t) {
+    var topic = t.getAttribute('data-topic');
+    t.addEventListener('mouseenter', function () { show(topic); });
+    t.addEventListener('mouseleave', function () { show(locked); });
+    t.addEventListener('focus', function () { show(topic); });
+    t.addEventListener('blur', function () { show(locked); });
+    t.addEventListener('click', function () {
+      locked = locked === topic ? null : topic;
+      syncTopics();
+      show(locked);
+      if (locked && window.matchMedia && window.matchMedia('(max-width: 899.98px)').matches) {
+        var first = document.querySelector('.item.lit');
+        if (first) first.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'center' });
+      }
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && locked) { locked = null; syncTopics(); show(null); }
+  });
+
+  /* ---- the two hand-drawn charts ---- */
+  function tween(ms, step) {
+    var id = 0;
+    return function (from, to) {
+      cancelAnimationFrame(id);
+      if (calm) { step(to); return; }
+      var t0 = performance.now();
+      (function frame(now) {
+        var k = Math.min(1, Math.max(0, (now - t0) / ms));
+        step(from + (to - from) * (1 - Math.pow(1 - k, 3)));
+        if (k < 1) id = requestAnimationFrame(frame);
+      })(t0);
+    };
+  }
+  /* Fault-free instructions = 100; with input faults the bars fall to about 55 and 79. */
+  var barOs = $('bar-os'), barApi = $('bar-api'), valOs = $('val-os'), valApi = $('val-api');
+  function setBar(bar, val, v) {
+    var h = v * 0.72;
+    bar.setAttribute('y', (90 - h).toFixed(1));
+    bar.setAttribute('height', h.toFixed(1));
+    val.setAttribute('y', (103 - h).toFixed(1));
+    val.textContent = v > 99.4 ? '100' : '≈' + Math.round(v);
+  }
+  function drawFaults(level) {
+    setBar(barOs, valOs, 100 - 45 * level);
+    setBar(barApi, valApi, 100 - 21 * level);
+  }
+  var runFaults = tween(900, drawFaults);
+  var accBars = all('#card-acc .bar');
+  function drawAcc(k) {
+    accBars.forEach(function (b) { b.setAttribute('width', (parseFloat(b.getAttribute('data-w')) * k).toFixed(1)); });
+  }
+  var runAcc = tween(900, drawAcc);
+  $('card-faults').addEventListener('click', function () { drawFaults(0); setTimeout(function () { runFaults(0, 1); }, 350); });
+  $('card-acc').addEventListener('click', function () { runAcc(0, 1); });
+
+  /* ---- pen strokes, highlights and charts draw themselves the first time they are seen ---- */
+  /* Without this script, or with reduced motion, everything is simply already drawn. */
   if (!calm && 'IntersectionObserver' in window) {
     root.classList.add('inked');
+    drawFaults(0);
+    drawAcc(0);
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-drawn'); io.unobserve(e.target); }
+        if (!e.isIntersecting) return;
+        var el = e.target;
+        el.classList.add('is-drawn');
+        io.unobserve(el);
+        if (el.id === 'card-faults') setTimeout(function () { runFaults(0, 1); }, 500);
+        if (el.id === 'card-acc') setTimeout(function () { runAcc(0, 1); }, 300);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.15 });
-    document.querySelectorAll('.ink, .hl').forEach(function (el) { io.observe(el); });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.15 });
+    all('.ink, .hl, #card-faults, #card-acc').forEach(function (el) { io.observe(el); });
   }
 })();
 </script>
