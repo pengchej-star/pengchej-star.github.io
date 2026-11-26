@@ -418,7 +418,7 @@ main{container-type:inline-size}
         <li><b>ICML · ICLR</b><span>two papers in 2026</span></li>
         <li><b>Bosch · IBM</b><span>industry research collaborations</span></li>
         <li><b>50+</b><span>citations on Google Scholar</span></li>
-        <li><b>3.91 / 4.00</b><span>undergraduate GPA</span></li>
+        <li><b>8B model</b><span>trained with SFT, then GRPO</span></li>
       </ul>
 
       <section class="sec" id="background" aria-labelledby="h-background">
@@ -513,43 +513,64 @@ main{container-type:inline-size}
           <button type="button" class="all" id="all-details" aria-pressed="false" data-group="item"><span>Show all details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
         </div>
 
-        <article class="item" id="tacit" data-topics="tacit">
+        <article class="item" id="safiron" data-topics="safety synth train">
           <div class="thumb">
-            <div class="card"><p class="card-note">tacit = known, but never written down</p></div>
-            <p class="status">Ongoing · 2026–</p>
+            <button type="button" class="card" id="card-acc" aria-label="Chart: Safiron reaches 94.9 percent binary classification accuracy and 64.6 percent risk-category accuracy. Press to replay.">
+              <svg class="mini" viewBox="0 0 176 112" aria-hidden="true">
+                <text x="6" y="22" font-size="14">risky or not</text>
+                <text x="170" y="22" font-size="15" text-anchor="end">94.9%</text>
+                <rect class="bar" data-w="155.6" x="6" y="29" width="155.6" height="13"/>
+                <line class="rule" x1="6" y1="45" x2="170" y2="45"/>
+                <text x="6" y="72" font-size="14">which risk</text>
+                <text x="170" y="72" font-size="15" text-anchor="end">64.6%</text>
+                <rect class="bar" data-w="105.9" x="6" y="79" width="105.9" height="13"/>
+                <line class="rule" x1="6" y1="95" x2="170" y2="95"/>
+                <text x="6" y="109" font-size="12">0</text>
+                <text x="170" y="109" font-size="12" text-anchor="end">100%</text>
+              </svg>
+            </button>
+            <p class="venue">ICLR 2026<svg class="ink ring" viewBox="0 0 120 44" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M12 21 C 12 8, 40 3, 68 5 C 96 7, 113 14, 110 25 C 106 37, 76 40, 50 40 C 26 39, 9 32, 13 18 C 16 11, 24 8, 32 8"/></svg></p>
           </div>
           <div class="item-body">
-            <h3>Tacit knowledge for LLM agents</h3>
-            <p class="authors">With Prof. Sherry Tongshuang Wu, CMU · in collaboration with Bosch</p>
-            <p class="sum">Discovering and extracting <mark class="hl">the unwritten judgment experts apply at critical decision points</mark>, so that LLM agents can use it.</p>
-            <p class="mine"><b>My part:</b> reconstructing human problem-solving workflows from Meta Kaggle Code and InsightBench, and identifying the decision points behind agent failures.</p>
-            <ul class="tags" aria-label="Methods and tools"><li>Meta Kaggle Code</li><li>InsightBench</li><li>workflow analysis</li></ul>
+            <h3><a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">Safiron: a guardrail that checks agent plans before they run<span class="out" aria-hidden="true"> ↗</span></a></h3>
+            <p class="authors">Yue Huang, Hang Hua, Yujun Zhou, <b>Pengcheng Jing</b>, …, Xiangliang Zhang</p>
+            <p class="sum">An 8B-parameter guardrail, built with IBM, that flags risky agent plans, classifies the risk, and explains why before execution. <mark class="hl">94.9% binary accuracy</mark>, ahead of all 12 general-purpose LLM baselines.</p>
+            <p class="mine"><b>My part:</b> built the synthetic-data pipeline and its quality filter, then trained the model with supervised fine-tuning followed by GRPO.</p>
+            <ul class="tags" aria-label="Methods and tools"><li>SFT</li><li>GRPO</li><li>synthetic data</li><li>distillation</li><li>DeepSeek-R1</li><li>Ministral</li></ul>
             <div class="row-links">
-              <button type="button" class="more" aria-expanded="false" aria-controls="d-tacit"><span>Details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+              <button type="button" class="more" aria-expanded="false" aria-controls="d-safiron"><span>Details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+              <a href="https://arxiv.org/pdf/2510.09781" target="_blank" rel="noopener">PDF ↗</a>
+              <a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">arXiv ↗</a>
+              <a href="https://iclr.cc/virtual/2026/poster/10009978" target="_blank" rel="noopener">ICLR ↗</a>
+              <button type="button" class="more bib-btn" aria-expanded="false" aria-controls="bib-safiron-panel"><span>BibTeX</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
             </div>
-            <div class="details" id="d-tacit"><div class="inner">
+            <div class="details" id="d-safiron"><div class="inner">
               <dl class="facts">
-                <dt>Project</dt>
-                <dd>Understanding tacit knowledge gaps between LLM agents and human experts</dd>
-                <dt>What</dt>
-                <dd>Tacit knowledge is the unwritten judgment experts apply at critical decision points. With Bosch, we discover and extract this knowledge so that LLM agents can use it, and we investigate whether its absence is what drives agent failures on complex tasks.</dd>
+                <dt>Title</dt>
+                <dd>Building a Foundational Guardrail for General Agentic Systems via Synthetic Data</dd>
+                <dt>Authors</dt>
+                <dd>Yue Huang, Hang Hua, Yujun Zhou, Pengcheng Jing, Manish Nagireddy, Inkit Padhi, Greta Dolcetti, Zhangchen Xu, Subhajit Chaudhury, Ambrish Rawat, Liubov Nedoshivina, Pin-Yu Chen, Prasanna Sattigeri, Xiangliang Zhang</dd>
                 <dt>My role</dt>
-                <dd>I explore Meta Kaggle Code and InsightBench to reconstruct human problem-solving workflows and identify the decision points relevant to LLM agent failures.</dd>
-                <dt>In short</dt>
-                <dd>
-                  <ol class="flow" aria-label="Expert workflows, then decision points, then tacit knowledge, then agents">
-                    <li>expert workflows</li>
-                    <li aria-hidden="true"><svg class="ink" viewBox="0 0 46 18"><path pathLength="1" d="M3 10 C 14 6, 28 12, 41 8"/><path pathLength="1" d="M33 3 L 41 8 L 34 14"/></svg></li>
-                    <li>decision points</li>
-                    <li aria-hidden="true"><svg class="ink" viewBox="0 0 46 18"><path pathLength="1" d="M3 9 C 15 12, 27 5, 41 9"/><path pathLength="1" d="M33 4 L 41 9 L 34 15"/></svg></li>
-                    <li>tacit knowledge</li>
-                    <li aria-hidden="true"><svg class="ink" viewBox="0 0 46 18"><path pathLength="1" d="M3 10 C 14 6, 28 12, 41 8"/><path pathLength="1" d="M33 3 L 41 8 L 34 14"/></svg></li>
-                    <li>agents</li>
-                  </ol>
-                </dd>
+                <dd>Built the AuraGen-based synthetic-data pipeline, distilling DeepSeek-R1-generated quality annotations into a Ministral-based scorer whose scores fed an SVM filter to select training samples. Trained Safiron with supervised fine-tuning followed by GRPO, using a mix of samples the fine-tuned model classified correctly and incorrectly to stabilize reinforcement learning.</dd>
+                <dt>Result</dt>
+                <dd>94.9% binary classification accuracy and 64.6% risk-category accuracy on Pre-Exec Bench, outperforming all 12 general-purpose LLM baselines evaluated.</dd>
                 <dt>When</dt>
-                <dd>Aug 2026 – present · Research assistant</dd>
+                <dd>Jul 2025 – Sep 2025 · Research assistant with Prof. Xiangliang Zhang, University of Notre Dame · with IBM</dd>
               </dl>
+              <figure class="paperfig">
+                <img src="fig-safiron.png" width="650" height="226" loading="lazy" alt="Training pipeline of Safiron: supervised fine-tuning, then selecting hard and easy samples, then reinforcement learning.">
+                <figcaption>Training pipeline, Figure 3 of <a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">the paper</a> (CC BY-NC-SA 4.0).</figcaption>
+              </figure>
+            </div></div>
+            <div class="details bib" id="bib-safiron-panel"><div class="inner">
+              <div class="bib-copy"><button type="button" class="pen-btn" data-copy="" data-target="bib-safiron" aria-live="polite"><span class="idle">(copy)</span><span class="done">copied!</span><span class="sel">selected</span></button></div>
+              <pre id="bib-safiron">@inproceedings{huang2026building,
+  title     = {Building a Foundational Guardrail for General Agentic Systems via Synthetic Data},
+  author    = {Huang, Yue and Hua, Hang and Zhou, Yujun and Jing, Pengcheng and Nagireddy, Manish and Padhi, Inkit and Dolcetti, Greta and Xu, Zhangchen and Chaudhury, Subhajit and Rawat, Ambrish and Nedoshivina, Liubov and Chen, Pin-Yu and Sattigeri, Prasanna and Zhang, Xiangliang},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2510.09781}
+}</pre>
             </div></div>
           </div>
         </article>
@@ -617,64 +638,43 @@ main{container-type:inline-size}
           </div>
         </article>
 
-        <article class="item" id="safiron" data-topics="safety synth train">
+        <article class="item" id="tacit" data-topics="tacit">
           <div class="thumb">
-            <button type="button" class="card" id="card-acc" aria-label="Chart: Safiron reaches 94.9 percent binary classification accuracy and 64.6 percent risk-category accuracy. Press to replay.">
-              <svg class="mini" viewBox="0 0 176 112" aria-hidden="true">
-                <text x="6" y="22" font-size="14">risky or not</text>
-                <text x="170" y="22" font-size="15" text-anchor="end">94.9%</text>
-                <rect class="bar" data-w="155.6" x="6" y="29" width="155.6" height="13"/>
-                <line class="rule" x1="6" y1="45" x2="170" y2="45"/>
-                <text x="6" y="72" font-size="14">which risk</text>
-                <text x="170" y="72" font-size="15" text-anchor="end">64.6%</text>
-                <rect class="bar" data-w="105.9" x="6" y="79" width="105.9" height="13"/>
-                <line class="rule" x1="6" y1="95" x2="170" y2="95"/>
-                <text x="6" y="109" font-size="12">0</text>
-                <text x="170" y="109" font-size="12" text-anchor="end">100%</text>
-              </svg>
-            </button>
-            <p class="venue">ICLR 2026<svg class="ink ring" viewBox="0 0 120 44" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M12 21 C 12 8, 40 3, 68 5 C 96 7, 113 14, 110 25 C 106 37, 76 40, 50 40 C 26 39, 9 32, 13 18 C 16 11, 24 8, 32 8"/></svg></p>
+            <div class="card"><p class="card-note">tacit = known, but never written down</p></div>
+            <p class="status">Ongoing · 2026–</p>
           </div>
           <div class="item-body">
-            <h3><a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">Safiron: a guardrail that checks agent plans before they run<span class="out" aria-hidden="true"> ↗</span></a></h3>
-            <p class="authors">Yue Huang, Hang Hua, Yujun Zhou, <b>Pengcheng Jing</b>, …, Xiangliang Zhang</p>
-            <p class="sum">An 8B-parameter guardrail, built with IBM, that flags risky agent plans, classifies the risk, and explains why before execution. <mark class="hl">94.9% binary accuracy</mark>, ahead of all 12 general-purpose LLM baselines.</p>
-            <p class="mine"><b>My part:</b> built the synthetic-data pipeline and its quality filter, then trained the model with supervised fine-tuning followed by GRPO.</p>
-            <ul class="tags" aria-label="Methods and tools"><li>SFT</li><li>GRPO</li><li>synthetic data</li><li>distillation</li><li>DeepSeek-R1</li><li>Ministral</li></ul>
+            <h3>Tacit knowledge for LLM agents</h3>
+            <p class="authors">With Prof. Sherry Tongshuang Wu, CMU · in collaboration with Bosch</p>
+            <p class="sum">Discovering and extracting <mark class="hl">the unwritten judgment experts apply at critical decision points</mark>, so that LLM agents can use it.</p>
+            <p class="mine"><b>My part:</b> reconstructing human problem-solving workflows from Meta Kaggle Code and InsightBench, and identifying the decision points behind agent failures.</p>
+            <ul class="tags" aria-label="Methods and tools"><li>Meta Kaggle Code</li><li>InsightBench</li><li>workflow analysis</li></ul>
             <div class="row-links">
-              <button type="button" class="more" aria-expanded="false" aria-controls="d-safiron"><span>Details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
-              <a href="https://arxiv.org/pdf/2510.09781" target="_blank" rel="noopener">PDF ↗</a>
-              <a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">arXiv ↗</a>
-              <a href="https://iclr.cc/virtual/2026/poster/10009978" target="_blank" rel="noopener">ICLR ↗</a>
-              <button type="button" class="more bib-btn" aria-expanded="false" aria-controls="bib-safiron-panel"><span>BibTeX</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
+              <button type="button" class="more" aria-expanded="false" aria-controls="d-tacit"><span>Details</span><svg class="chev" aria-hidden="true"><use href="#chev"/></svg></button>
             </div>
-            <div class="details" id="d-safiron"><div class="inner">
+            <div class="details" id="d-tacit"><div class="inner">
               <dl class="facts">
-                <dt>Title</dt>
-                <dd>Building a Foundational Guardrail for General Agentic Systems via Synthetic Data</dd>
-                <dt>Authors</dt>
-                <dd>Yue Huang, Hang Hua, Yujun Zhou, Pengcheng Jing, Manish Nagireddy, Inkit Padhi, Greta Dolcetti, Zhangchen Xu, Subhajit Chaudhury, Ambrish Rawat, Liubov Nedoshivina, Pin-Yu Chen, Prasanna Sattigeri, Xiangliang Zhang</dd>
+                <dt>Project</dt>
+                <dd>Understanding tacit knowledge gaps between LLM agents and human experts</dd>
+                <dt>What</dt>
+                <dd>Tacit knowledge is the unwritten judgment experts apply at critical decision points. With Bosch, we discover and extract this knowledge so that LLM agents can use it, and we investigate whether its absence is what drives agent failures on complex tasks.</dd>
                 <dt>My role</dt>
-                <dd>Built the AuraGen-based synthetic-data pipeline, distilling DeepSeek-R1-generated quality annotations into a Ministral-based scorer whose scores fed an SVM filter to select training samples. Trained Safiron with supervised fine-tuning followed by GRPO, using a mix of samples the fine-tuned model classified correctly and incorrectly to stabilize reinforcement learning.</dd>
-                <dt>Result</dt>
-                <dd>94.9% binary classification accuracy and 64.6% risk-category accuracy on Pre-Exec Bench, outperforming all 12 general-purpose LLM baselines evaluated.</dd>
+                <dd>I explore Meta Kaggle Code and InsightBench to reconstruct human problem-solving workflows and identify the decision points relevant to LLM agent failures.</dd>
+                <dt>In short</dt>
+                <dd>
+                  <ol class="flow" aria-label="Expert workflows, then decision points, then tacit knowledge, then agents">
+                    <li>expert workflows</li>
+                    <li aria-hidden="true"><svg class="ink" viewBox="0 0 46 18"><path pathLength="1" d="M3 10 C 14 6, 28 12, 41 8"/><path pathLength="1" d="M33 3 L 41 8 L 34 14"/></svg></li>
+                    <li>decision points</li>
+                    <li aria-hidden="true"><svg class="ink" viewBox="0 0 46 18"><path pathLength="1" d="M3 9 C 15 12, 27 5, 41 9"/><path pathLength="1" d="M33 4 L 41 9 L 34 15"/></svg></li>
+                    <li>tacit knowledge</li>
+                    <li aria-hidden="true"><svg class="ink" viewBox="0 0 46 18"><path pathLength="1" d="M3 10 C 14 6, 28 12, 41 8"/><path pathLength="1" d="M33 3 L 41 8 L 34 14"/></svg></li>
+                    <li>agents</li>
+                  </ol>
+                </dd>
                 <dt>When</dt>
-                <dd>Jul 2025 – Sep 2025 · Research assistant with Prof. Xiangliang Zhang, University of Notre Dame · with IBM</dd>
+                <dd>Aug 2026 – present · Research assistant</dd>
               </dl>
-              <figure class="paperfig">
-                <img src="fig-safiron.png" width="650" height="226" loading="lazy" alt="Training pipeline of Safiron: supervised fine-tuning, then selecting hard and easy samples, then reinforcement learning.">
-                <figcaption>Training pipeline, Figure 3 of <a href="https://arxiv.org/abs/2510.09781" target="_blank" rel="noopener">the paper</a> (CC BY-NC-SA 4.0).</figcaption>
-              </figure>
-            </div></div>
-            <div class="details bib" id="bib-safiron-panel"><div class="inner">
-              <div class="bib-copy"><button type="button" class="pen-btn" data-copy="" data-target="bib-safiron" aria-live="polite"><span class="idle">(copy)</span><span class="done">copied!</span><span class="sel">selected</span></button></div>
-              <pre id="bib-safiron">@inproceedings{huang2026building,
-  title     = {Building a Foundational Guardrail for General Agentic Systems via Synthetic Data},
-  author    = {Huang, Yue and Hua, Hang and Zhou, Yujun and Jing, Pengcheng and Nagireddy, Manish and Padhi, Inkit and Dolcetti, Greta and Xu, Zhangchen and Chaudhury, Subhajit and Rawat, Ambrish and Nedoshivina, Liubov and Chen, Pin-Yu and Sattigeri, Prasanna and Zhang, Xiangliang},
-  booktitle = {International Conference on Learning Representations},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2510.09781}
-}</pre>
             </div></div>
           </div>
         </article>
